@@ -1,0 +1,32 @@
+Hardware:
+- Liste der Komponenten
+- Temperatur
+- Windows edition
+- Festplatten größen
+
+Dashboard
+- Diagramme 
+	CPU
+	RAM
+	Festplatten belegung
+	netzwerk auslatung
+	Schreib lese geschwindigkeit
+
+ereignisse
+	Ereignissanzeige
+		kritisch
+		Warnung
+
+Festplatte
+	Analyse Festplattenbelegung
+	Schreib lese geschwindigkeit
+	(Festplatten belegung programm aufrufen)
+
+Leistung
+		CPU
+	RAM
+	netzwerk auslatung
+	Schreib lese geschwindigkeit
+
+Prozesse
+	Task Manager -> Programm beeden
