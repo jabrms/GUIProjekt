@@ -1,0 +1,28 @@
+﻿<Window x:Class="GUI_Geruest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Windows Manager" Height="666" Width="auto" MinHeight="300" MinWidth="600" BorderBrush="Black" Background="#FFE4E4E4">
+    <Grid Margin="0,0,0,0">
+        <DockPanel>
+            <GroupBox Header="Navigation"  DockPanel.Dock="Left" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Height="auto" Margin="0,0,0,0" BorderBrush="Black" Width="115" FontSize="20" BorderThickness="2,1,1,1" Foreground="#FF0023FF">
+                <Grid Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="auto">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Button x:Name="dashboard" Content="Dashboard" Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="stretch" Width="auto" FontSize="20" Grid.Row="0"  Click="Dashboard_Click" Background="SkyBlue"/>
+                    <Button x:Name="hardware" Content="Hardware" Height="auto" HorizontalAlignment="stretch" VerticalAlignment="stretch" Width="auto" FontSize="20" Grid.Row="1" Click="Hardware_Click" Background="SkyBlue"/>
+                    <Button x:Name="festplatte" Content="Festplatte" Height="auto" HorizontalAlignment="stretch" VerticalAlignment="stretch" Width="auto" FontSize="20" Grid.Row="2" Click="Festplatte_Click" Background="SkyBlue"/>
+                    <Button x:Name="leistung" Content="Leistung" Height="auto" HorizontalAlignment="stretch" VerticalAlignment="stretch" Width="auto" FontSize="20" Grid.Row="3" Click="Leistung_Click" Background="SkyBlue"/>
+                    <Button x:Name="prozesse" Content="Prozesse" Height="auto" HorizontalAlignment="stretch" VerticalAlignment="stretch" Width="auto" FontSize="20" Grid.Row="4" Click="Prozesse_Click" Background="SkyBlue"/>
+                    <Button x:Name="ereignisse" Content="Ereignisse" Height="auto" HorizontalAlignment="stretch" VerticalAlignment="stretch" Width="auto" FontSize="20" Grid.Row="5" Click="Ereignisse_Click" Background="SkyBlue"/>
+                </Grid>
+            </GroupBox>
+            <Frame Name="fenster" Source="Dashboard.xaml" DockPanel.Dock="Right" Margin="0,0,0,10" NavigationUIVisibility="Hidden" ContentRendered="fenster_ContentRendered"/>
+        </DockPanel>
+    </Grid>
+</Window>
