@@ -3,8 +3,10 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:DV="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+      xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="700" d:DesignWidth="500"
 	Title="Dashboard">
 
     <Grid>
@@ -13,136 +15,191 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="5.3*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="5.3*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="5.3*"/>
+                    <RowDefinition Height="10*" MinHeight="200"/>
+                    <RowDefinition Height="10*" MinHeight="200"/>
+                    <RowDefinition Height="10*" MinHeight="200"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="8.5*"/>
+                    <ColumnDefinition Width="8.5*" MinWidth="250"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="8.5*"/>
+                    <ColumnDefinition Width="8.5*" MinWidth="250"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="1"  Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="7*" MinHeight="40"/>
-                        <RowDefinition Height="26"/>
-                        <RowDefinition Height="26"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <ProgressBar Name="progBarCPU0" Grid.Column="1" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU1" Grid.Column="2" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU2" Grid.Column="3" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU3" Grid.Column="4" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU4" Grid.Column="5" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU5" Grid.Column="6" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU6" Grid.Column="7" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU7" Grid.Column="8" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU8" Grid.Column="9" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU9" Grid.Column="10" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU10" Grid.Column="11" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU11" Grid.Column="12" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU12" Grid.Column="13" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU13" Grid.Column="14" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU14" Grid.Column="15" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU15" Grid.Column="16" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU16" Grid.Column="17" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarCPU17" Grid.Column="18" Grid.Row="0" Orientation="Vertical"/>
-
-                    <Label Name="labelCPU" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="19" Content="CPU-Auslastung:"/>
-                    <Label Name="skalaCPU50p" Grid.Column="0" Grid.Row="0" Content="50% -" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <Label Name="skalaCPU0p" Grid.Column="0" Grid.Row="0" Content="0%" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,1,18.272" Grid.RowSpan="2"/>
-                    <Label Name="skalaCPU100p" Grid.Column="0" Grid.Row="0" Content="100%" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-9,1,0"/>
-                    <Label Name="skalaCPU0" Grid.Column="17" Grid.Row="1" Grid.ColumnSpan="2" Content="0s" HorizontalAlignment="Right" Margin="0,0,-6,0"/>
-                    <Label Name="skalaCPU2" Grid.Column="13" Grid.Row="1" Grid.ColumnSpan="3" Content="-2" HorizontalAlignment="Center"/>
-                    <Label Name="skalaCPU4" Grid.Column="9" Grid.Row="1" Grid.ColumnSpan="3" Content="-4" HorizontalAlignment="Center"/>
-                    <Label Name="skalaCPU6" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="3" Content="-6" HorizontalAlignment="Center"/>
-                    <Label Name="skalaCPU8" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Content="-8" HorizontalAlignment="Center"/>
 
 
-                </Grid>
-                <Grid Grid.Column="3"  Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="7*" MinHeight="40"/>
-                        <RowDefinition Height="26"/>
-                        <RowDefinition Height="26"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <ProgressBar Name="progBarRAM0" Grid.Column="1" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM1" Grid.Column="2" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM2" Grid.Column="3" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM3" Grid.Column="4" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM4" Grid.Column="5" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM5" Grid.Column="6" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM6" Grid.Column="7" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM7" Grid.Column="8" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM8" Grid.Column="9" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM9" Grid.Column="10" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM10" Grid.Column="11" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM11" Grid.Column="12" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM12" Grid.Column="13" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM13" Grid.Column="14" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM14" Grid.Column="15" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM15" Grid.Column="16" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM16" Grid.Column="17" Grid.Row="0" Orientation="Vertical"/>
-                    <ProgressBar Name="progBarRAM17" Grid.Column="18" Grid.Row="0" Orientation="Vertical"/>
 
-                    <Label Name="labelRAM" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="19" Content="RAM-Auslastung:"/>
-                    <Label Name="skalaRAM50p" Grid.Column="0" Grid.Row="0" Content="50% -" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <Label Name="skalaRAM0p" Grid.Column="0" Grid.Row="0" Content="0%" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,1,18.272" Grid.RowSpan="2"/>
-                    <Label Name="skalaRAM100p" Grid.Column="0" Grid.Row="0" Content="100%" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-9,1,0"/>
-                    <Label Name="skalaRAM0" Grid.Column="17" Grid.Row="1" Grid.ColumnSpan="2" Content="0s" HorizontalAlignment="Right" Margin="0,0,-6,0"/>
-                    <Label Name="skalaRAM2" Grid.Column="13" Grid.Row="1" Grid.ColumnSpan="3" Content="-2" HorizontalAlignment="Center"/>
-                    <Label Name="skalaRAM4" Grid.Column="9" Grid.Row="1" Grid.ColumnSpan="3" Content="-4" HorizontalAlignment="Center"/>
-                    <Label Name="skalaRAM6" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="3" Content="-6" HorizontalAlignment="Center"/>
-                    <Label Name="skalaRAM8" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Content="-8" HorizontalAlignment="Center"/>
+                <DVC:Chart Name="cpuChart"
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   Background="Transparent" BorderThickness="0">
+                    <DVC:LineSeries Title="CPU"
+                            IndependentValueBinding="{Binding Path=Key}"
+                            DependentValueBinding="{Binding Path=Value}">
+                        <DVC:LineSeries.DataPointStyle>
+                            <Style TargetType="DVC:LineDataPoint">
+                                <Setter Property="Template" Value="{x:Null}" />
+                            </Style>
+                        </DVC:LineSeries.DataPointStyle>
+                    </DVC:LineSeries>
+                    <DVC:Chart.Axes>
+                        <DVC:LinearAxis Orientation="Y" 
+                                Minimum="0"
+                                Maximum="100" 
+                                Title= "%" Margin="1,0,-1.293,0.487">
+                        </DVC:LinearAxis>
+                        <DVC:LinearAxis Orientation="X"
+                                Minimum="-10"
+                                Maximum="0"
+                                Title="Zeit [s]"
+                                Interval="1"/>
+                    </DVC:Chart.Axes>
+                    <DVC:Chart.LegendStyle>
+                        <Style TargetType="DV:Legend">
+                            <Setter Property="Width" Value="0"/>
+                        </Style>
+                    </DVC:Chart.LegendStyle>
+                </DVC:Chart>
 
+                <DVC:Chart Name="ramChart"
+                   Grid.Column="3"
+                   Grid.Row="1"
+                   Background="Transparent" BorderThickness="0">
+                    <DVC:LineSeries Title="RAM"
+                            IndependentValueBinding="{Binding Path=Key}"
+                            DependentValueBinding="{Binding Path=Value}">
+                        <DVC:LineSeries.DataPointStyle>
+                            <Style TargetType="DVC:LineDataPoint">
+                                <Setter Property="Template" Value="{x:Null}" />
+                            </Style>
+                        </DVC:LineSeries.DataPointStyle>
+                    </DVC:LineSeries>
+                    <DVC:Chart.Axes>
+                        <DVC:LinearAxis Orientation="Y" 
+                                Minimum="0"
+                                Maximum="100" 
+                                Title="%">
+                        </DVC:LinearAxis>
+                        <DVC:LinearAxis Orientation="X"
+                                Minimum="-10"
+                                Maximum="0"
+                                Title="Zeit [s]"
+                                Interval="1"/>
+                    </DVC:Chart.Axes>
+                    <DVC:Chart.LegendStyle>
+                        <Style TargetType="DV:Legend">
+                            <Setter Property="Width" Value="0"/>
+                        </Style>
+                    </DVC:Chart.LegendStyle>
+                </DVC:Chart>
 
-                </Grid>
+                <DVC:Chart Name="storageChart"
+                           Grid.Column="1"
+                           Grid.Row="2"
+                           Background="Transparent"
+                           BorderThickness="0">
+                    <DVC:PieSeries Title="Storage"
+                                   Background="Transparent"
+                                   IndependentValueBinding="{Binding Path=Key}"
+                                   DependentValueBinding="{Binding Path=Value}">
+
+                    </DVC:PieSeries>
+                </DVC:Chart>
+
+                <DVC:Chart Name="diskIOChart"
+                   Grid.Column="3"
+                   Grid.Row="2"
+                   Background="Transparent" BorderThickness="0">
+                    <DVC:LineSeries Title="RAM"
+                            IndependentValueBinding="{Binding Path=Key}"
+                            DependentValueBinding="{Binding Path=Value}">
+                        <DVC:LineSeries.DataPointStyle>
+                            <Style TargetType="DVC:LineDataPoint">
+                                <Setter Property="Template" Value="{x:Null}" />
+                            </Style>
+                        </DVC:LineSeries.DataPointStyle>
+                    </DVC:LineSeries>
+                    <DVC:Chart.Axes>
+                        <DVC:LinearAxis Orientation="Y" 
+                                Minimum="0" 
+                                Title="MiB/s">
+                        </DVC:LinearAxis>
+                        <DVC:LinearAxis Orientation="X"
+                                Minimum="-10"
+                                Maximum="0"
+                                Title="Zeit [s]"
+                                Interval="1"/>
+                    </DVC:Chart.Axes>
+                    <DVC:Chart.LegendStyle>
+                        <Style TargetType="DV:Legend">
+                            <Setter Property="Width" Value="0"/>
+                        </Style>
+                    </DVC:Chart.LegendStyle>
+                </DVC:Chart>
+
+                <DVC:Chart Name="networkRecChart"
+                   Grid.Column="1"
+                   Grid.Row="3"
+                   Background="Transparent" BorderThickness="0">
+                    <DVC:LineSeries Title="RAM"
+                            IndependentValueBinding="{Binding Path=Key}"
+                            DependentValueBinding="{Binding Path=Value}">
+                        <DVC:LineSeries.DataPointStyle>
+                            <Style TargetType="DVC:LineDataPoint">
+                                <Setter Property="Template" Value="{x:Null}" />
+                            </Style>
+                        </DVC:LineSeries.DataPointStyle>
+                    </DVC:LineSeries>
+                    <DVC:Chart.Axes>
+                        <DVC:LinearAxis Orientation="Y" 
+                                Minimum="0" 
+                                Title="KiB/s">
+                        </DVC:LinearAxis>
+                        <DVC:LinearAxis Orientation="X"
+                                Minimum="-10"
+                                Maximum="0"
+                                Title="Zeit [s]"
+                                Interval="1"/>
+                    </DVC:Chart.Axes>
+                    <DVC:Chart.LegendStyle>
+                        <Style TargetType="DV:Legend">
+                            <Setter Property="Width" Value="0"/>
+                        </Style>
+                    </DVC:Chart.LegendStyle>
+                </DVC:Chart>
+
+                <DVC:Chart Name="networkSenChart"
+                   Grid.Column="3"
+                   Grid.Row="3"
+                   Background="Transparent" BorderThickness="0">
+                    <DVC:LineSeries Title="RAM"
+                            IndependentValueBinding="{Binding Path=Key}"
+                            DependentValueBinding="{Binding Path=Value}">
+                        <DVC:LineSeries.DataPointStyle>
+                            <Style TargetType="DVC:LineDataPoint">
+                                <Setter Property="Template" Value="{x:Null}" />
+                            </Style>
+                        </DVC:LineSeries.DataPointStyle>
+                    </DVC:LineSeries>
+                    <DVC:Chart.Axes>
+                        <DVC:LinearAxis Orientation="Y" 
+                                Minimum="0" 
+                                Title="KiB/s">
+                        </DVC:LinearAxis>
+                        <DVC:LinearAxis Orientation="X"
+                                Minimum="-10"
+                                Maximum="0"
+                                Title="Zeit [s]"
+                                Interval="1"/>
+                    </DVC:Chart.Axes>
+                    <DVC:Chart.LegendStyle>
+                        <Style TargetType="DV:Legend">
+                            <Setter Property="Width" Value="0"/>
+                        </Style>
+                    </DVC:Chart.LegendStyle>
+                </DVC:Chart>
+
             </Grid>
         </DockPanel>
     </Grid>

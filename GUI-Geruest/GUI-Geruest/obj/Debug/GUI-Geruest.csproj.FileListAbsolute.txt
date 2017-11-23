@@ -77,3 +77,7 @@ C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug
 C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\GUI-Geruest.g.resources
 C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\GUI_Geruest.Properties.Resources.resources
 C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\GUI-Geruest.csproj.GenerateResource.Cache
+C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll
+C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
+C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\bin\Debug\WPFToolkit.dll
