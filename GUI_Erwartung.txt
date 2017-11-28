@@ -1,10 +1,15 @@
 Hardware:
+JO
 - Liste der Komponenten
 - Temperatur
 - Windows edition
 - Festplatten größen
+JA
+Analyse Festplattenbelegung
+	Schreib lese geschwindigkeit
+	(Festplatten belegung programm aufrufen)
 
-Dashboard
+Dashboard	JA
 - Diagramme 
 	CPU
 	RAM
@@ -17,16 +22,18 @@ ereignisse
 		kritisch
 		Warnung
 
-Festplatte
-	Analyse Festplattenbelegung
-	Schreib lese geschwindigkeit
-	(Festplatten belegung programm aufrufen)
+Netzwerk	JO
+	IP-Adresse
+	Auslastung
+	Mac-Adresse
+	?(neu vergeben)
+	
 
-Leistung
+Leistung	JA
 		CPU
 	RAM
 	netzwerk auslatung
 	Schreib lese geschwindigkeit
 
-Prozesse
+Prozesse	JO
 	Task Manager -> Programm beeden
