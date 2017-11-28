@@ -1,0 +1,210 @@
+﻿<Page x:Class="GUI_Geruest.Dashboard"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:DV="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+      xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="500"
+	Title="Dashboard">
+
+    <Grid>
+        <DockPanel>
+            <TextBlock DockPanel.Dock="Top" Width="auto" FontSize="30" Background="DarkGray" Foreground="White" Margin="5,5,5,5">Dashboard</TextBlock>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10*" MinHeight="200"/>
+                    <RowDefinition Height="10*" MinHeight="200"/>
+                    <RowDefinition Height="10*" MinHeight="200"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="8.5*" MinWidth="250"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="8.5*" MinWidth="250"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+
+                <DVC:Chart Name="cpuChart"
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   Background="Transparent" BorderThickness="0">
+                    <DVC:LineSeries Title="CPU"
+                            IndependentValueBinding="{Binding Path=Key}"
+                            DependentValueBinding="{Binding Path=Value}">
+                        <DVC:LineSeries.DataPointStyle>
+                            <Style TargetType="DVC:LineDataPoint">
+                                <Setter Property="Template" Value="{x:Null}" />
+                            </Style>
+                        </DVC:LineSeries.DataPointStyle>
+                    </DVC:LineSeries>
+                    <DVC:Chart.Axes>
+                        <DVC:LinearAxis Orientation="Y" 
+                                Minimum="0"
+                                Maximum="100" 
+                                Title= "%" Margin="1,0,-1.293,0.487">
+                        </DVC:LinearAxis>
+                        <DVC:LinearAxis Orientation="X"
+                                Minimum="-10"
+                                Maximum="0"
+                                Title="Zeit [s]"
+                                Interval="1"/>
+                    </DVC:Chart.Axes>
+                    <DVC:Chart.LegendStyle>
+                        <Style TargetType="DV:Legend">
+                            <Setter Property="Width" Value="0"/>
+                        </Style>
+                    </DVC:Chart.LegendStyle>
+                </DVC:Chart>
+
+                <DVC:Chart Name="ramChart"
+                   Grid.Column="3"
+                   Grid.Row="1"
+                   Background="Transparent" BorderThickness="0">
+                    <DVC:LineSeries Title="RAM"
+                            IndependentValueBinding="{Binding Path=Key}"
+                            DependentValueBinding="{Binding Path=Value}">
+                        <DVC:LineSeries.DataPointStyle>
+                            <Style TargetType="DVC:LineDataPoint">
+                                <Setter Property="Template" Value="{x:Null}" />
+                            </Style>
+                        </DVC:LineSeries.DataPointStyle>
+                    </DVC:LineSeries>
+                    <DVC:Chart.Axes>
+                        <DVC:LinearAxis Orientation="Y" 
+                                Minimum="0"
+                                Maximum="100" 
+                                Title="%">
+                        </DVC:LinearAxis>
+                        <DVC:LinearAxis Orientation="X"
+                                Minimum="-10"
+                                Maximum="0"
+                                Title="Zeit [s]"
+                                Interval="1"/>
+                    </DVC:Chart.Axes>
+                    <DVC:Chart.LegendStyle>
+                        <Style TargetType="DV:Legend">
+                            <Setter Property="Width" Value="0"/>
+                        </Style>
+                    </DVC:Chart.LegendStyle>
+                </DVC:Chart>
+
+                <DVC:Chart Name="storageChart"
+                           Grid.Column="1"
+                           Grid.Row="2"
+                           Background="Transparent"
+                           BorderThickness="0">
+                    <DVC:PieSeries Title="Storage"
+                                   Background="Transparent"
+                                   IndependentValueBinding="{Binding Path=Key}"
+                                   DependentValueBinding="{Binding Path=Value}">
+
+                    </DVC:PieSeries>
+                </DVC:Chart>
+
+                <DVC:Chart Name="diskIOChart"
+                   Grid.Column="3"
+                   Grid.Row="2"
+                   Background="Transparent" BorderThickness="0">
+                    <DVC:LineSeries Title="RAM"
+                            IndependentValueBinding="{Binding Path=Key}"
+                            DependentValueBinding="{Binding Path=Value}">
+                        <DVC:LineSeries.DataPointStyle>
+                            <Style TargetType="DVC:LineDataPoint">
+                                <Setter Property="Template" Value="{x:Null}" />
+                            </Style>
+                        </DVC:LineSeries.DataPointStyle>
+                    </DVC:LineSeries>
+                    <DVC:Chart.Axes>
+                        <DVC:LinearAxis Orientation="Y" 
+                                Minimum="0" 
+                                Title="MiB/s">
+                        </DVC:LinearAxis>
+                        <DVC:LinearAxis Orientation="X"
+                                Minimum="-10"
+                                Maximum="0"
+                                Title="Zeit [s]"
+                                Interval="1"/>
+                    </DVC:Chart.Axes>
+                    <DVC:Chart.LegendStyle>
+                        <Style TargetType="DV:Legend">
+                            <Setter Property="Width" Value="0"/>
+                        </Style>
+                    </DVC:Chart.LegendStyle>
+                </DVC:Chart>
+
+                <DVC:Chart Name="networkRecChart"
+                   Grid.Column="1"
+                   Grid.Row="3"
+                   Background="Transparent" BorderThickness="0">
+                    <DVC:LineSeries Title="RAM"
+                            IndependentValueBinding="{Binding Path=Key}"
+                            DependentValueBinding="{Binding Path=Value}">
+                        <DVC:LineSeries.DataPointStyle>
+                            <Style TargetType="DVC:LineDataPoint">
+                                <Setter Property="Template" Value="{x:Null}" />
+                            </Style>
+                        </DVC:LineSeries.DataPointStyle>
+                    </DVC:LineSeries>
+                    <DVC:Chart.Axes>
+                        <DVC:LinearAxis Orientation="Y" 
+                                Minimum="0" 
+                                Title="KiB/s">
+                        </DVC:LinearAxis>
+                        <DVC:LinearAxis Orientation="X"
+                                Minimum="-10"
+                                Maximum="0"
+                                Title="Zeit [s]"
+                                Interval="1"/>
+                    </DVC:Chart.Axes>
+                    <DVC:Chart.LegendStyle>
+                        <Style TargetType="DV:Legend">
+                            <Setter Property="Width" Value="0"/>
+                        </Style>
+                    </DVC:Chart.LegendStyle>
+                </DVC:Chart>
+
+                <DVC:Chart Name="networkSenChart"
+                   Grid.Column="3"
+                   Grid.Row="3"
+                   Background="Transparent" BorderThickness="0">
+                    <DVC:LineSeries Title="RAM"
+                            IndependentValueBinding="{Binding Path=Key}"
+                            DependentValueBinding="{Binding Path=Value}">
+                        <DVC:LineSeries.DataPointStyle>
+                            <Style TargetType="DVC:LineDataPoint">
+                                <Setter Property="Template" Value="{x:Null}" />
+                            </Style>
+                        </DVC:LineSeries.DataPointStyle>
+                    </DVC:LineSeries>
+                    <DVC:Chart.Axes>
+                        <DVC:LinearAxis Orientation="Y" 
+                                Minimum="0" 
+                                Title="KiB/s">
+                        </DVC:LinearAxis>
+                        <DVC:LinearAxis Orientation="X"
+                                Minimum="-10"
+                                Maximum="0"
+                                Title="Zeit [s]"
+                                Interval="1"/>
+                    </DVC:Chart.Axes>
+                    <DVC:Chart.LegendStyle>
+                        <Style TargetType="DV:Legend">
+                            <Setter Property="Width" Value="0"/>
+                        </Style>
+                    </DVC:Chart.LegendStyle>
+                </DVC:Chart>
+
+            </Grid>
+        </DockPanel>
+    </Grid>
+
+    
+
+
+</Page>
