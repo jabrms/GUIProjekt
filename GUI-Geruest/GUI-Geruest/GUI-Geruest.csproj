@@ -88,6 +88,9 @@
     <Compile Include="Leistung.xaml.cs">
       <DependentUpon>Leistung.xaml</DependentUpon>
     </Compile>
+    <Compile Include="programmStarten.xaml.cs">
+      <DependentUpon>programmStarten.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Prozesse.xaml.cs">
       <DependentUpon>Prozesse.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="programmStarten.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Prozesse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
