@@ -17,21 +17,24 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label x:Name="ip" Content="IP-Adresse:" Grid.Column="0" Grid.Row="0"/>
-                <Label x:Name="gw" Content="Gateway:" Grid.Column="0" Grid.Row="1"/>
-                <Label x:Name="dns" Content="DNS-Server:" Grid.Column="0" Grid.Row="2"/>
-                <Label x:Name="dhcp" Content="DHCP-Server:" Grid.Column="0" Grid.Row="3"/>
-                <Label x:Name="mac" Content="MAC-Adresse:" Grid.Column="0" Grid.Row="4"/>
-                <Label x:Name="ip_info" Grid.Column="1" Grid.Row="0"/>
-                <Label x:Name="gw_info" Grid.Column="1" Grid.Row="1"/>
-                <Label x:Name="dns_info" Grid.Column="1" Grid.Row="2"/>
-                <Label x:Name="dhcp_info" Grid.Column="1" Grid.Row="3"/>
-                <Label x:Name="mac_info" Grid.Column="1" Grid.Row="4"/>
+                <Label x:Name="sm" Content="Subnetmask:" Grid.Column="0" Grid.Row="1"/>
+                <Label x:Name="gw" Content="Gateway:" Grid.Column="0" Grid.Row="2"/>
+                <Label x:Name="desc" Content="Beschreibung:" Grid.Column="0" Grid.Row="3"/>
+                <Label x:Name="hn" Content="Hostname:" Grid.Column="0" Grid.Row="4"/>
+                <Label x:Name="mac" Content="MAC-Adresse:" Grid.Column="0" Grid.Row="5"/>
+                <Label x:Name="ip_info" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"/>
+                <Label x:Name="sm_info" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"/>
+                <Label x:Name="gw_info" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left"/>
+                <Label x:Name="desc_info" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left"/>
+                <Label x:Name="hn_info" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left"/>
+                <Label x:Name="mac_info" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left"/>
             </Grid>
         </DockPanel>
     </Grid>
