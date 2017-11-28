@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Jannik\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\App.xaml
-8-317674427
+8-1560892221
 
-12-1004338513
+12-1207359525
 201791027593
-Dashboard.xaml;Ereignisse.xaml;Festplatte.xaml;Hardware.xaml;Leistung.xaml;MainWindow.xaml;programmStarten.xaml;Prozesse.xaml;
+Dashboard.xaml;Ereignisse.xaml;Netzwerk.xaml;Hardware.xaml;Leistung.xaml;MainWindow.xaml;programmStarten.xaml;Prozesse.xaml;
 
-False
+True
 

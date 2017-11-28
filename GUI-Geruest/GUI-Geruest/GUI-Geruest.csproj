@@ -79,8 +79,8 @@
     <Compile Include="Ereignisse.xaml.cs">
       <DependentUpon>Ereignisse.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Festplatte.xaml.cs">
-      <DependentUpon>Festplatte.xaml</DependentUpon>
+    <Compile Include="Netzwerk.xaml.cs">
+      <DependentUpon>Netzwerk.xaml</DependentUpon>
     </Compile>
     <Compile Include="Hardware.xaml.cs">
       <DependentUpon>Hardware.xaml</DependentUpon>
@@ -102,7 +102,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Festplatte.xaml">
+    <Page Include="Netzwerk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

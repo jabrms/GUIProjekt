@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GUI_Geruest
 {
@@ -25,7 +15,6 @@ namespace GUI_Geruest
             InitializeComponent();
         }
         //Naviagtion
-
         private void farbeAendern(Button click)
         {
             click.Background = Brushes.White;
@@ -35,7 +24,7 @@ namespace GUI_Geruest
         {
             dashboard.Background = Brushes.SkyBlue;
             hardware.Background = Brushes.SkyBlue;
-            festplatte.Background = Brushes.SkyBlue;
+            netzwerk.Background = Brushes.SkyBlue;
             leistung.Background = Brushes.SkyBlue;
             prozesse.Background = Brushes.SkyBlue;
             ereignisse.Background = Brushes.SkyBlue;
@@ -49,9 +38,9 @@ namespace GUI_Geruest
             fenster.Content = new Hardware();
             
         }
-        private void Festplatte_Click(object sender, RoutedEventArgs e)
+        private void Netzwerk_Click(object sender, RoutedEventArgs e)
         {
-            fenster.Content = new Festplatte();
+            fenster.Content = new Netzwerk();
         }
         private void Leistung_Click(object sender, RoutedEventArgs e)
         {
@@ -79,9 +68,9 @@ namespace GUI_Geruest
             {
                 farbeAendern(hardware);
             }
-            else if (welchesFrame == "Festplatte")
+            else if (welchesFrame == "Netzwerk")
             {
-                farbeAendern(festplatte);
+                farbeAendern(netzwerk);
             }
             else if (welchesFrame == "Leistung")
             {

@@ -58,7 +58,7 @@ namespace GUI_Geruest
             try
             {
                 Process[] toKill = Process.GetProcessesByName(ListBoxProcess.SelectedItem.ToString());
-                foreach (Process proc in toKill)
+                foreach (Process proc in toKill)    //TODO nur das erste beenden -> Auswahl
                 {
                     proc.Kill();
                     GetAllProcess();
