@@ -21,18 +21,18 @@ namespace GUI_Geruest
     /// <summary>
     /// Interaktionslogik für Festplatte.xaml
     /// </summary>
-    public partial class Netzwerk : Window
+    public partial class Netzwerk : Page
     {
         public Netzwerk()
         {
             InitializeComponent();
         }
         
-        string[] Adressen;
-        string[] SubnetMasken;
-        string[] DefaultGateways;
-        string NetworkCard;
-        string MACAddress;
+        //string[] Adressen;
+        //string[] SubnetMasken;
+        //string[] DefaultGateways;
+        //string NetworkCard;
+        //string MACAddress;
         void NetzwerkInfo()
         {     
            // ManagementObjectSearcher NetworkInfo = new ManagementObjectSearcher("SELECT * FROM Win32_NetworkAdapterConfiguration WHERE IPEnabled = 'TRUE'");
