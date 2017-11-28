@@ -74,7 +74,7 @@ namespace GUI_Geruest
             currentDiskIO = Convert.ToInt32(diskIOCounter.NextValue() / 1048576);
             currentNetworkRec = Convert.ToInt32(networkRecCounter.NextValue() / 1024);
             currentNetworkSen = Convert.ToInt32(networkSenCounter.NextValue() / 1024);
-
+            
             //Aktualisierung der Arrays
             cpuData = refreshData(cpuData, currentCPU);
             ramData = refreshData(ramData, currentRAM);
