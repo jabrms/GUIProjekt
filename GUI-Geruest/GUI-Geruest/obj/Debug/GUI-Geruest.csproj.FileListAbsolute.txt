@@ -113,3 +113,6 @@ C:\Users\Jannik\Desktop\GUI_Project\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug
 C:\Users\Jannik\Desktop\GUI_Project\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\programmStarten.g.cs
 C:\Users\Jannik\Desktop\GUI_Project\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\GUI-Geruest_MarkupCompile.lref
 C:\Users\Jannik\Desktop\GUI_Project\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\programmStarten.baml
+C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\programmStarten.g.cs
+C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\GUI-Geruest_MarkupCompile.lref
+C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\programmStarten.baml

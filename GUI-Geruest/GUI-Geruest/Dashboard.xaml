@@ -28,7 +28,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-
+                
 
                 <DVC:Chart Name="cpuChart"
                    Grid.Column="1"
