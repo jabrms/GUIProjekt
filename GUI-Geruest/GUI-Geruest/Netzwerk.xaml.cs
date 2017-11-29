@@ -49,26 +49,19 @@ namespace GUI_Geruest
                 hostname = mo["DNSHostName"].ToString();
             }
         }
+
+        void contentLoeschen()
+        {
+            ip_info.Content = null;
+            sm_info.Content = null;
+            gw_info.Content = null;
+            mac_info.Content = null;
+            desc_info.Content = null;
+            hn_info.Content = null;
+        }
         private void contentAendern()
         {
             NetzwerkInfo();
-            /*
-            foreach(string ipA in ipAdressen)
-            {
-                ip_info.Content += ipA + "\n";     
-            }
-
-            foreach (string subm in SubnetMasken)
-            {
-                sm_info.Content += subm + "\n";
-            }
-
-            foreach (string gw in DefaultGateways)
-            {
-                gw_info.Content += gw + "\n";
-            }
-            //TODO bei meht Details button
-            */
             ip_info.Content = ipAdressen[0];
             sm_info.Content = SubnetMasken[0];
             gw_info.Content = DefaultGateways[0];
@@ -76,5 +69,51 @@ namespace GUI_Geruest
             desc_info.Content = NetworkCard;
             hn_info.Content = hostname;
          }
+
+        private void mehrZeigen_Click(object sender, RoutedEventArgs e)
+        {
+            if (mehrZeigen.Background == Brushes.SkyBlue)
+            {
+                mehrZeigen.Background = Brushes.White;
+                wenigerZeigen.Background = Brushes.SkyBlue;
+
+                contentLoeschen();
+
+                foreach (string ipA in ipAdressen)
+                {
+                    ip_info.Content += ipA + "\n";
+                }
+
+                foreach (string subm in SubnetMasken)
+                {
+                    sm_info.Content += subm + "\n";
+                }
+
+                foreach (string gw in DefaultGateways)
+                {
+                    gw_info.Content += gw + "\n";
+                }
+
+                mac_info.Content = MACAddress;
+                desc_info.Content = NetworkCard;
+                hn_info.Content = hostname;
+
+                ip.Content = "IPv4-Adresse" + "\nLink-Lokale IPv6-Adresse:" + "\ntemporäre IPv6-Adresse:" + "\nIPv6-Adresse:";
+            }
+
+        }
+
+        private void wenigerZeigen_Click(object sender, RoutedEventArgs e)
+        {
+            if (wenigerZeigen.Background == Brushes.SkyBlue)
+            {
+                mehrZeigen.Background = Brushes.SkyBlue;
+                wenigerZeigen.Background = Brushes.White;
+                ip.Content = "IP-Adresse:";
+                contentAendern();
+            }
+
+        }
     }
+
 }
