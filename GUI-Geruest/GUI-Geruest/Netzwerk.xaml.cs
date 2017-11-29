@@ -35,18 +35,31 @@ namespace GUI_Geruest
         string NetworkCard;
         string MACAddress;
         string hostname;
+        string dhcpServer;
+        string[] dnsServer;
+        string dhcpAktiv;    
+        string dnsSuffix;
         private void NetzwerkInfo()
         {
             ManagementObjectSearcher NetworkInfo = new ManagementObjectSearcher("SELECT * FROM Win32_NetworkAdapterConfiguration WHERE IPEnabled = 'TRUE'");
             ManagementObjectCollection moCollection = NetworkInfo.Get();
             foreach (ManagementObject mo in moCollection)
             {
-                ipAdressen = (string[])mo["IPAddress"];
-                SubnetMasken = (string[])mo["IPSubnet"];
-                DefaultGateways = (string[])mo["DefaultIPGateway"];
-                NetworkCard = mo["Description"].ToString();
-                MACAddress = mo["MACAddress"].ToString();
-                hostname = mo["DNSHostName"].ToString();
+                try //Wenn Einträge nicht vorhanden sind
+                {
+                    ipAdressen = (string[])mo["IPAddress"];
+                    SubnetMasken = (string[])mo["IPSubnet"];
+                    DefaultGateways = (string[])mo["DefaultIPGateway"];
+                    NetworkCard = mo["Description"].ToString();
+                    MACAddress = mo["MACAddress"].ToString();
+                    hostname = mo["DNSHostName"].ToString();
+                    dhcpServer = (string)mo["DHCPServer"];
+                    dnsServer = (string[])mo["DNSServerSearchOrder"];
+                    dnsSuffix = (string)mo["DNSDomain"];
+                    dhcpAktiv = mo["DHCPEnabled"].ToString();
+                }
+                catch { }
+
             }
         }
 
@@ -58,6 +71,12 @@ namespace GUI_Geruest
             mac_info.Content = null;
             desc_info.Content = null;
             hn_info.Content = null;
+            dhcp.Content = null;
+            dhcp_info.Content = null;
+            dns.Content = null;
+            dns_info.Content = null;
+            dnsSuf_info.Content = null;
+            dnsSuf.Content = null;
         }
         private void contentAendern()
         {
@@ -68,6 +87,7 @@ namespace GUI_Geruest
             mac_info.Content = MACAddress;
             desc_info.Content = NetworkCard;
             hn_info.Content = hostname;
+            dhcpEnabled_info.Content = dhcpAktiv;
          }
 
         private void mehrZeigen_Click(object sender, RoutedEventArgs e)
@@ -99,6 +119,17 @@ namespace GUI_Geruest
                 hn_info.Content = hostname;
 
                 ip.Content = "IPv4-Adresse" + "\nLink-Lokale IPv6-Adresse:" + "\ntemporäre IPv6-Adresse:" + "\nIPv6-Adresse:";
+
+                dhcp.Content = "DHCP-Server:";
+                dhcp_info.Content = dhcpServer;
+                dns.Content = "DNS-Server:";
+                foreach(string dn in dnsServer)
+                {
+                    dns_info.Content += dn + "\n";
+                }
+                
+                dnsSuf.Content = "DNS-Suffix:";
+                dnsSuf_info.Content = dnsSuffix;
             }
 
         }
@@ -110,6 +141,7 @@ namespace GUI_Geruest
                 mehrZeigen.Background = Brushes.SkyBlue;
                 wenigerZeigen.Background = Brushes.White;
                 ip.Content = "IP-Adresse:";
+                contentLoeschen();
                 contentAendern();
             }
 

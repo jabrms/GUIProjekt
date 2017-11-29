@@ -12,7 +12,7 @@
             <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="30">Netzwerk</TextBlock>
             <Grid>
                 <GroupBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                    <Grid Margin="5,5,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Left" Grid.Row="0">
+                    <Grid Margin="5,5,0,0" VerticalAlignment="Stretch" Grid.Row="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="2*"/>
                             <RowDefinition Height="*"/>
@@ -34,6 +34,14 @@
                         <Label x:Name="desc" Content="Beschreibung:" Grid.Column="0" Grid.Row="2" FontSize="20"/>
                         <Label x:Name="hn" Content="Hostname:" Grid.Column="0" Grid.Row="3" FontSize="20"/>
                         <Label x:Name="mac" Content="MAC-Adresse:" Grid.Column="0" Grid.Row="4" FontSize="20"/>
+                        <Label x:Name="dhcp" Grid.Column="2" Grid.Row="2" FontSize="20"/>
+                        <Label x:Name="dns" Grid.Column="2" Grid.Row="3" FontSize="20"/>
+                        <Label x:Name="dhcpEnabled" Content="DHCP aktiviert:" Grid.Column="0" Grid.Row="5" FontSize="20"/>
+                        <Label x:Name="dhcp_info" Grid.Column="3" Grid.Row="2" FontSize="20"/>
+                        <Label x:Name="dns_info" Grid.Column="3" Grid.Row="3" FontSize="20"/>
+                        <Label x:Name="dnsSuf" Grid.Column="2" Grid.Row="4" FontSize="20"/>
+                        <Label x:Name="dnsSuf_info" Grid.Column="3" Grid.Row="4" FontSize="20"/>
+                        <Label x:Name="dhcpEnabled_info" Grid.Column="1" Grid.Row="5" FontSize="20"/>
                         <Label x:Name="ip_info" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="20"/>
                         <Label x:Name="sm_info" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left" FontSize="20"/>
                         <Label x:Name="gw_info" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="20"/>
