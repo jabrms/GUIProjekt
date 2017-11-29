@@ -28,7 +28,7 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Label x:Name="ip" Content="IP-Adresse:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" FontSize="20" />
+                        <Label x:Name="ip" Content="IP-Adresse:" Grid.Column="0" Grid.Row="0" FontSize="20" HorizontalAlignment="Left" />
                         <Label x:Name="sm" Content="Subnetmask:" Grid.Column="2" Grid.Row="0" FontSize="20"/>
                         <Label x:Name="gw" Content="default Gateway:" Grid.Column="0" Grid.Row="1" FontSize="20"/>
                         <Label x:Name="desc" Content="Beschreibung:" Grid.Column="0" Grid.Row="2" FontSize="20"/>

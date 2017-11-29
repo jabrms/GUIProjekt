@@ -58,15 +58,27 @@ namespace GUI_Geruest
             try
             {
                 Process[] toKill = Process.GetProcessesByName(ListBoxProcess.SelectedItem.ToString());
-                foreach (Process proc in toKill)    //TODO nur das erste beenden -> Auswahl
-                {
-                    proc.Kill();
+               // if (toKill.GetLength(0) > 1) {  //nur wenn mehr als ein programm offen abfragen
+                    switch (MessageBox.Show("Alle Prozesse mit diesem Namen beenden", "Frage", MessageBoxButton.YesNoCancel, MessageBoxImage.Question)) //alle Prozesse oder nur einen mit selben namen beenden
+                    {
+                        case MessageBoxResult.Cancel:
+                            break;
+                        case MessageBoxResult.No:
+                            toKill[0].Kill();
+                            break;
+                        case MessageBoxResult.Yes:
+                            foreach (Process proc in toKill)
+                            {
+                                proc.Kill();
+                            }
+                            break;
+                    }
                     GetAllProcess();
-                }
+                //}
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Meldung", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Meldung", MessageBoxButton.OK, MessageBoxImage.Error); //hat nicht geklappt
             }
             GetAllProcess();
         }
