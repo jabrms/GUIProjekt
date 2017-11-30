@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\
+C:\Users\Jannik\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\
 GUI_Geruest
 none
 false
 DEBUG;TRACE
-C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\App.xaml
-8-317674427
+C:\Users\Jannik\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\App.xaml
+8-1560892221
 
-141482867557
-21537851598
-Dashboard.xaml;Ereignisse.xaml;Festplatte.xaml;Hardware.xaml;Leistung.xaml;MainWindow.xaml;programmStarten.xaml;Prozesse.xaml;
+12-1207359525
+21-1530396955
+Dashboard.xaml;Ereignisse.xaml;Netzwerk.xaml;Hardware.xaml;Leistung.xaml;MainWindow.xaml;programmStarten.xaml;Prozesse.xaml;
 
 False
 

@@ -16,7 +16,7 @@
                     </Grid.RowDefinitions>
                     <Button x:Name="dashboard" Content="Dashboard" Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="stretch" Width="auto" FontSize="20" Grid.Row="0"  Click="Dashboard_Click" Background="SkyBlue"/>
                     <Button x:Name="hardware" Content="Hardware" Height="auto" HorizontalAlignment="stretch" VerticalAlignment="stretch" Width="auto" FontSize="20" Grid.Row="1" Click="Hardware_Click" Background="SkyBlue"/>
-                    <Button x:Name="festplatte" Content="Festplatte" Height="auto" HorizontalAlignment="stretch" VerticalAlignment="stretch" Width="auto" FontSize="20" Grid.Row="2" Click="Festplatte_Click" Background="SkyBlue"/>
+                    <Button x:Name="netzwerk" Content="Netzwerk" Height="auto" HorizontalAlignment="stretch" VerticalAlignment="stretch" Width="auto" FontSize="20" Grid.Row="2" Click="Netzwerk_Click" Background="SkyBlue"/>
                     <Button x:Name="leistung" Content="Leistung" Height="auto" HorizontalAlignment="stretch" VerticalAlignment="stretch" Width="auto" FontSize="20" Grid.Row="3" Click="Leistung_Click" Background="SkyBlue"/>
                     <Button x:Name="prozesse" Content="Prozesse" Height="auto" HorizontalAlignment="stretch" VerticalAlignment="stretch" Width="auto" FontSize="20" Grid.Row="4" Click="Prozesse_Click" Background="SkyBlue"/>
                     <Button x:Name="ereignisse" Content="Ereignisse" Height="auto" HorizontalAlignment="stretch" VerticalAlignment="stretch" Width="auto" FontSize="20" Grid.Row="5" Click="Ereignisse_Click" Background="SkyBlue"/>
