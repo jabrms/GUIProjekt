@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:DV="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
       xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+      xmlns:winformchart="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization" 
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="500"
 	Title="Dashboard">
@@ -15,9 +16,9 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="10*" MinHeight="200"/>
-                    <RowDefinition Height="10*" MinHeight="200"/>
-                    <RowDefinition Height="10*" MinHeight="200"/>
+                    <RowDefinition Height="10*" MinHeight="150"/>
+                    <RowDefinition Height="10*" MinHeight="150"/>
+                    <RowDefinition Height="10*" MinHeight="150"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -28,177 +29,81 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
+                <WindowsFormsHost x:Name="cpuGrid" Grid.Column="1" Grid.Row="1">
+                    <winformchart:Chart x:Name="cpuChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                        <winformchart:Chart.Series>
+                            <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                        </winformchart:Chart.Series>
+                        <winformchart:Chart.ChartAreas>
+                            <winformchart:ChartArea BackColor="Transparent" >
+                            </winformchart:ChartArea>
+                        </winformchart:Chart.ChartAreas>
+                    </winformchart:Chart>
+                </WindowsFormsHost>
+
+                <WindowsFormsHost x:Name="ramGrid" Grid.Column="3" Grid.Row="1">
+                    <winformchart:Chart x:Name="ramChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                        <winformchart:Chart.Series>
+                            <winformchart:Series Name="RAM Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                        </winformchart:Chart.Series>
+                        <winformchart:Chart.ChartAreas>
+                            <winformchart:ChartArea BackColor="Transparent" >
+                            </winformchart:ChartArea>
+                        </winformchart:Chart.ChartAreas>
+                    </winformchart:Chart>
+                </WindowsFormsHost>
 
 
-                <DVC:Chart Name="cpuChart"
-                   Grid.Column="1"
-                   Grid.Row="1"
-                   Background="Transparent" BorderThickness="0">
-                    <DVC:LineSeries Title="CPU"
-                            IndependentValueBinding="{Binding Path=Key}"
-                            DependentValueBinding="{Binding Path=Value}">
-                        <DVC:LineSeries.DataPointStyle>
-                            <Style TargetType="DVC:LineDataPoint">
-                                <Setter Property="Template" Value="{x:Null}" />
-                            </Style>
-                        </DVC:LineSeries.DataPointStyle>
-                    </DVC:LineSeries>
-                    <DVC:Chart.Axes>
-                        <DVC:LinearAxis Orientation="Y" 
-                                Minimum="0"
-                                Maximum="100" 
-                                Title= "%" Margin="1,0,-1.293,0.487">
-                        </DVC:LinearAxis>
-                        <DVC:LinearAxis Orientation="X"
-                                Minimum="-10"
-                                Maximum="0"
-                                Title="Zeit [s]"
-                                Interval="1"/>
-                    </DVC:Chart.Axes>
-                    <DVC:Chart.LegendStyle>
-                        <Style TargetType="DV:Legend">
-                            <Setter Property="Width" Value="0"/>
-                        </Style>
-                    </DVC:Chart.LegendStyle>
-                </DVC:Chart>
 
-                <DVC:Chart Name="ramChart"
-                   Grid.Column="3"
-                   Grid.Row="1"
-                   Background="Transparent" BorderThickness="0">
-                    <DVC:LineSeries Title="RAM"
-                            IndependentValueBinding="{Binding Path=Key}"
-                            DependentValueBinding="{Binding Path=Value}">
-                        <DVC:LineSeries.DataPointStyle>
-                            <Style TargetType="DVC:LineDataPoint">
-                                <Setter Property="Template" Value="{x:Null}" />
-                            </Style>
-                        </DVC:LineSeries.DataPointStyle>
-                    </DVC:LineSeries>
-                    <DVC:Chart.Axes>
-                        <DVC:LinearAxis Orientation="Y" 
-                                Minimum="0"
-                                Maximum="100" 
-                                Title="%">
-                        </DVC:LinearAxis>
-                        <DVC:LinearAxis Orientation="X"
-                                Minimum="-10"
-                                Maximum="0"
-                                Title="Zeit [s]"
-                                Interval="1"/>
-                    </DVC:Chart.Axes>
-                    <DVC:Chart.LegendStyle>
-                        <Style TargetType="DV:Legend">
-                            <Setter Property="Width" Value="0"/>
-                        </Style>
-                    </DVC:Chart.LegendStyle>
-                </DVC:Chart>
 
-                <DVC:Chart Name="storageChart"
-                           Grid.Column="1"
-                           Grid.Row="2"
-                           Background="Transparent"
-                           BorderThickness="0">
-                    <DVC:PieSeries Title="Storage"
-                                   Background="Transparent"
-                                   IndependentValueBinding="{Binding Path=Key}"
-                                   DependentValueBinding="{Binding Path=Value}">
 
-                    </DVC:PieSeries>
-                </DVC:Chart>
+                <WindowsFormsHost x:Name="storageGrid" Grid.Column="1" Grid.Row="2">
+                    <winformchart:Chart x:Name="storageChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                        <winformchart:Chart.Series>
+                            <winformchart:Series ChartType="Pie" BorderWidth="3" XValueType="DateTime"/>
+                        </winformchart:Chart.Series>
+                        <winformchart:Chart.ChartAreas>
+                            <winformchart:ChartArea BackColor="Transparent" >
+                            </winformchart:ChartArea>
+                        </winformchart:Chart.ChartAreas>
+                    </winformchart:Chart>
+                </WindowsFormsHost>
 
-                <DVC:Chart Name="diskIOChart"
-                   Grid.Column="3"
-                   Grid.Row="2"
-                   Background="Transparent" BorderThickness="0">
-                    <DVC:LineSeries Title="RAM"
-                            IndependentValueBinding="{Binding Path=Key}"
-                            DependentValueBinding="{Binding Path=Value}">
-                        <DVC:LineSeries.DataPointStyle>
-                            <Style TargetType="DVC:LineDataPoint">
-                                <Setter Property="Template" Value="{x:Null}" />
-                            </Style>
-                        </DVC:LineSeries.DataPointStyle>
-                    </DVC:LineSeries>
-                    <DVC:Chart.Axes>
-                        <DVC:LinearAxis Orientation="Y" 
-                                Minimum="0" 
-                                Title="MiB/s">
-                        </DVC:LinearAxis>
-                        <DVC:LinearAxis Orientation="X"
-                                Minimum="-10"
-                                Maximum="0"
-                                Title="Zeit [s]"
-                                Interval="1"/>
-                    </DVC:Chart.Axes>
-                    <DVC:Chart.LegendStyle>
-                        <Style TargetType="DV:Legend">
-                            <Setter Property="Width" Value="0"/>
-                        </Style>
-                    </DVC:Chart.LegendStyle>
-                </DVC:Chart>
+                <WindowsFormsHost x:Name="diskIOGrid" Grid.Column="3" Grid.Row="2">
+                    <winformchart:Chart x:Name="diskIOChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                        <winformchart:Chart.Series>
+                            <winformchart:Series Name="Festplatten Schreib und Leserate" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                        </winformchart:Chart.Series>
+                        <winformchart:Chart.ChartAreas>
+                            <winformchart:ChartArea BackColor="Transparent" >
+                            </winformchart:ChartArea>
+                        </winformchart:Chart.ChartAreas>
+                    </winformchart:Chart>
+                </WindowsFormsHost>
 
-                <DVC:Chart Name="networkRecChart"
-                   Grid.Column="1"
-                   Grid.Row="3"
-                   Background="Transparent" BorderThickness="0">
-                    <DVC:LineSeries Title="RAM"
-                            IndependentValueBinding="{Binding Path=Key}"
-                            DependentValueBinding="{Binding Path=Value}">
-                        <DVC:LineSeries.DataPointStyle>
-                            <Style TargetType="DVC:LineDataPoint">
-                                <Setter Property="Template" Value="{x:Null}" />
-                            </Style>
-                        </DVC:LineSeries.DataPointStyle>
-                    </DVC:LineSeries>
-                    <DVC:Chart.Axes>
-                        <DVC:LinearAxis Orientation="Y" 
-                                Minimum="0" 
-                                Title="KiB/s">
-                        </DVC:LinearAxis>
-                        <DVC:LinearAxis Orientation="X"
-                                Minimum="-10"
-                                Maximum="0"
-                                Title="Zeit [s]"
-                                Interval="1"/>
-                    </DVC:Chart.Axes>
-                    <DVC:Chart.LegendStyle>
-                        <Style TargetType="DV:Legend">
-                            <Setter Property="Width" Value="0"/>
-                        </Style>
-                    </DVC:Chart.LegendStyle>
-                </DVC:Chart>
+                <WindowsFormsHost x:Name="networkRecGrid" Grid.Column="1" Grid.Row="3">
+                    <winformchart:Chart x:Name="networkRecChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                        <winformchart:Chart.Series>
+                            <winformchart:Series Name="Netzwerk Empfagsrate" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                        </winformchart:Chart.Series>
+                        <winformchart:Chart.ChartAreas>
+                            <winformchart:ChartArea BackColor="Transparent" >
+                            </winformchart:ChartArea>
+                        </winformchart:Chart.ChartAreas>
+                    </winformchart:Chart>
+                </WindowsFormsHost>
 
-                <DVC:Chart Name="networkSenChart"
-                   Grid.Column="3"
-                   Grid.Row="3"
-                   Background="Transparent" BorderThickness="0">
-                    <DVC:LineSeries Title="RAM"
-                            IndependentValueBinding="{Binding Path=Key}"
-                            DependentValueBinding="{Binding Path=Value}">
-                        <DVC:LineSeries.DataPointStyle>
-                            <Style TargetType="DVC:LineDataPoint">
-                                <Setter Property="Template" Value="{x:Null}" />
-                            </Style>
-                        </DVC:LineSeries.DataPointStyle>
-                    </DVC:LineSeries>
-                    <DVC:Chart.Axes>
-                        <DVC:LinearAxis Orientation="Y" 
-                                Minimum="0" 
-                                Title="KiB/s">
-                        </DVC:LinearAxis>
-                        <DVC:LinearAxis Orientation="X"
-                                Minimum="-10"
-                                Maximum="0"
-                                Title="Zeit [s]"
-                                Interval="1"/>
-                    </DVC:Chart.Axes>
-                    <DVC:Chart.LegendStyle>
-                        <Style TargetType="DV:Legend">
-                            <Setter Property="Width" Value="0"/>
-                        </Style>
-                    </DVC:Chart.LegendStyle>
-                </DVC:Chart>
+                <WindowsFormsHost x:Name="networkSenGrid" Grid.Column="3" Grid.Row="3">
+                    <winformchart:Chart x:Name="networkSenChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                        <winformchart:Chart.Series>
+                            <winformchart:Series ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                        </winformchart:Chart.Series>
+                        <winformchart:Chart.ChartAreas>
+                            <winformchart:ChartArea BackColor="Transparent" >
+                            </winformchart:ChartArea>
+                        </winformchart:Chart.ChartAreas>
+                    </winformchart:Chart>
+                </WindowsFormsHost>
 
             </Grid>
         </DockPanel>
