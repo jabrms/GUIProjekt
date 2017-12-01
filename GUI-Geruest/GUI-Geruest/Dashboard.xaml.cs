@@ -29,7 +29,6 @@ namespace GUI_Geruest
     {
         DispatcherTimer perfCountTimer = new DispatcherTimer(); // Timer zur regelmaessigen Abfrage des aktuellen Ressourcenverbrauchs
 
-
         //Abfrage der verfuegbaren Netzwerkinstanzen
         static PerformanceCounterCategory category = new PerformanceCounterCategory("Network Interface");
         static String[] instancenames = category.GetInstanceNames();
