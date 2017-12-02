@@ -91,6 +91,7 @@ namespace GUI_Geruest
                             foreach (Process proc in toKill)
                             {
                                 proc.Kill();
+                                GetAllProcess(); //liste aktualisieren
                             }
                             break;
                     }
