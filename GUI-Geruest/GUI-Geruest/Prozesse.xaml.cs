@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 
 namespace GUI_Geruest
 {
@@ -10,10 +11,30 @@ namespace GUI_Geruest
     /// </summary>
     public partial class Prozesse : Page
     {
+
+        //Graphen
+        DispatcherTimer perfCountTimer = new DispatcherTimer(); // Timer zur regelmaessigen Abfrage des aktuellen Ressourcenverbrauchs
+
+        //PerformanceCounter fuer Auslesen der Daten
+        public PerformanceCounter cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+        public PerformanceCounter ramCounter = new PerformanceCounter("Memory", "% Committed Bytes In Use");
+
+        public LineChart cpuLineChart;
+        public LineChart ramLineChart;
         public Prozesse()
         {
             InitializeComponent();
+
             GetAllProcess();
+
+            //Einrichtung Timer
+            perfCountTimer.Tick += PerfCountTimer_Tick;
+            perfCountTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
+            perfCountTimer.IsEnabled = true;
+
+
+            cpuLineChart = new LineChart(cpuChart, cpuCounter, "Percentage", "CPU-Auslastung");
+            ramLineChart = new LineChart(ramChart, ramCounter, "Percentage", "RAM-Auslastung");
         }
 
         Process[] process;
@@ -90,6 +111,13 @@ namespace GUI_Geruest
         private void aktualisieren_Click(object sender, RoutedEventArgs e)      //Programm aktualisieren
         {
             GetAllProcess();
+        }
+
+        private void PerfCountTimer_Tick(object sender, EventArgs e)
+        {
+            // Aktualisierung der Werte durch aufruf der PerformanceCounter
+            cpuLineChart.refresh();
+            ramLineChart.refresh();
         }
     }
 }

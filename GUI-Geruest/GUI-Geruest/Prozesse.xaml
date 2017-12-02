@@ -3,6 +3,9 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:DV="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+      xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+      xmlns:winformchart="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="Prozesse">
@@ -16,33 +19,56 @@
                     <RowDefinition  Height="*"/>
                     <RowDefinition  Height="*"/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <GroupBox x:Name="Prozesse1" Header="Prozesse" FontSize="18">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Label x:Name="anzahl" Grid.Row="0" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Button x:Name="go" Grid.Column="0" Margin="5,5,5,5" FontSize="24" MaxHeight="100"  MaxWidth="400" Click="go_Click">Prozess starten</Button>
-                                <Button x:Name="kill" Grid.Column="1" Margin="5,5,5,5" FontSize="24" MaxHeight="100" MaxWidth="400" Click="kill_Click">Prozess beenden</Button>
-                                <Button x:Name="aktualisieren" Grid.Column="2" Margin="5,5,5,5" FontSize="24" MaxHeight="100" MaxWidth="400" Click="aktualisieren_Click">Aktualisieren</Button>
-                            </Grid>
+                <GroupBox x:Name="Prozesse1" Header="Prozesse verwalten" FontSize="18" Grid.Row="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label x:Name="anzahl" Grid.Row="0" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="go" Grid.Column="0" Margin="5,5,5,5" FontSize="24" MaxHeight="100"  MaxWidth="400" Click="go_Click">Prozess starten</Button>
+                            <Button x:Name="kill" Grid.Column="1" Margin="5,5,5,5" FontSize="24" MaxHeight="100" MaxWidth="400" Click="kill_Click">Prozess beenden</Button>
+                            <Button x:Name="aktualisieren" Grid.Column="2" Margin="5,5,5,5" FontSize="24" MaxHeight="100" MaxWidth="400" Click="aktualisieren_Click">Aktualisieren</Button>
                         </Grid>
-                    </GroupBox>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width ="*"/>
-                        <ColumnDefinition Width ="*"/>
-                    </Grid.ColumnDefinitions>
-                </Grid>
+                    </Grid>
+                </GroupBox>
+                <GroupBox x:Name="graph" Header="Auslastung" FontSize="18" Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width ="*"/>
+                            <ColumnDefinition Width ="*"/>
+                        </Grid.ColumnDefinitions>
+                        <WindowsFormsHost x:Name="cpuGrid" Grid.Column="0">
+                            <winformchart:Chart x:Name="cpuChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                                <winformchart:Chart.Series>
+                                    <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                                </winformchart:Chart.Series>
+                                <winformchart:Chart.ChartAreas>
+                                    <winformchart:ChartArea BackColor="Transparent" >
+                                    </winformchart:ChartArea>
+                                </winformchart:Chart.ChartAreas>
+                            </winformchart:Chart>
+                        </WindowsFormsHost>
+
+                        <WindowsFormsHost x:Name="ramGrid" Grid.Column="1">
+                            <winformchart:Chart x:Name="ramChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                                <winformchart:Chart.Series>
+                                    <winformchart:Series Name="RAM Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                                </winformchart:Chart.Series>
+                                <winformchart:Chart.ChartAreas>
+                                    <winformchart:ChartArea BackColor="Transparent" >
+                                    </winformchart:ChartArea>
+                                </winformchart:Chart.ChartAreas>
+                            </winformchart:Chart>
+                        </WindowsFormsHost>
+                    </Grid>
+                </GroupBox>
             </Grid>
 
         </DockPanel>
