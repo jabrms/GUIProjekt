@@ -42,22 +42,23 @@ namespace GUI_Geruest
 
         public void refresh()
         {
-            if (dataType == "Percentage")
+            try
             {
-                chart.Series[0].Points.AddXY(DateTime.Now, perfCounter.NextValue());
-            }
-            else if (dataType == "KiB/s")
-            {
-                chart.Series[0].Points.AddXY(DateTime.Now, perfCounter.NextValue() / 1024);
-            }
-            else if (dataType == "MiB/s")
-            {
-                chart.Series[0].Points.AddXY(DateTime.Now, perfCounter.NextValue() / 1048576);
-            }
-            
-
-            chart.ChartAreas[0].AxisX.ScaleView.Zoom(DateTime.Now.AddSeconds(-15).ToOADate(), DateTime.Now.ToOADate());
-            
+                if (dataType == "Percentage")
+                {
+                    chart.Series[0].Points.AddXY(DateTime.Now, perfCounter.NextValue());
+                }
+                else if (dataType == "KiB/s")
+                {
+                    chart.Series[0].Points.AddXY(DateTime.Now, perfCounter.NextValue() / 1024);
+                }
+                else if (dataType == "MiB/s")
+                {
+                    chart.Series[0].Points.AddXY(DateTime.Now, perfCounter.NextValue() / 1048576);
+                }
+                    chart.ChartAreas[0].AxisX.ScaleView.Zoom(DateTime.Now.AddSeconds(-15).ToOADate(), DateTime.Now.ToOADate());
+                }
+            catch {}
         }
     }
 }
