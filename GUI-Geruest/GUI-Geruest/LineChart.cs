@@ -40,6 +40,11 @@ namespace GUI_Geruest
             
         }
 
+        public void changePerfCounter(PerformanceCounter newPerfCounter)
+        {
+            perfCounter = newPerfCounter;
+        }
+
         public void refresh()
         {
             try

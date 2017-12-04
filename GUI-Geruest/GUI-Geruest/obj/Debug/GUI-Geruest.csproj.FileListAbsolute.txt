@@ -60,14 +60,12 @@ C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\bin\Debug
 C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\bin\Debug\GUI-Geruest.pdb
 C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\Dashboard.baml
 C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\Ereignisse.baml
-C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\Festplatte.baml
 C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\Hardware.baml
 C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\Leistung.baml
 C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\MainWindow.baml
 C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\Prozesse.baml
 C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\Dashboard.g.cs
 C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\Ereignisse.g.cs
-C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\Festplatte.g.cs
 C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\Hardware.g.cs
 C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\Leistung.g.cs
 C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\MainWindow.g.cs
@@ -177,3 +175,8 @@ C:\Users\Jannik\Desktop\GUI\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\GUI_Ger
 C:\Users\Jannik\Desktop\GUI\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\GUI-Geruest.csproj.GenerateResource.Cache
 C:\Users\Jannik\Desktop\GUI\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\GUI-Geruest.exe
 C:\Users\Jannik\Desktop\GUI\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\GUI-Geruest.pdb
+C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\Netzwerk.baml
+C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\Netzwerk.g.cs
+C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\programmStarten.g.cs
+C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\GUI-Geruest_MarkupCompile.lref
+C:\Users\jonasabrahams\Source\Repos\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\programmStarten.baml

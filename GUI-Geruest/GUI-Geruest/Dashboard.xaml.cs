@@ -36,8 +36,7 @@ namespace GUI_Geruest
         public PerformanceCounter cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
         public PerformanceCounter ramCounter = new PerformanceCounter("Memory", "% Committed Bytes In Use");
         public PerformanceCounter diskIOCounter = new PerformanceCounter("PhysicalDisk", "Disk Bytes/sec", "_Total");
-        public PerformanceCounter networkRecCounter;
-        public PerformanceCounter networkSenCounter;
+
 
         public LineChart cpuLineChart;
         public LineChart ramLineChart;
@@ -52,20 +51,20 @@ namespace GUI_Geruest
             
             foreach (String instance in instancenames)
             {
-                if (instance.Contains("Intel"))
-                {
-                    networkRecCounter = new PerformanceCounter("Network Interface", "Bytes Received/sec", instance);
-                    networkSenCounter = new PerformanceCounter("Network Interface", "Bytes Sent/sec", instance);
-                    break;
-                }
+
+                networkComboBox.Items.Add(instance);
+
             }
-            
+            networkRecLineChart = new LineChart(networkRecChart, new PerformanceCounter("Network Interface", "Bytes Received/sec", (string)networkComboBox.SelectedItem), "KiB/s", "Netzwerk Empfagsrate");
+            networkSenLineChart = new LineChart(networkSenChart, new PerformanceCounter("Network Interface", "Bytes Sent/sec", (string)networkComboBox.SelectedItem), "KiB/s", "Netzwerk Senderate");
+            networkComboBox.SelectedItem = networkComboBox.Items[0];
+
 
 
 
             //Einrichtung Timer
             perfCountTimer.Tick += PerfCountTimer_Tick;
-            perfCountTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
+            perfCountTimer.Interval = new TimeSpan(0, 0, 0, 0, 200);
             perfCountTimer.IsEnabled = true;
 
 
@@ -73,8 +72,7 @@ namespace GUI_Geruest
             ramLineChart = new LineChart(ramChart, ramCounter, "Percentage", "RAM-Auslastung");
             storagePieChart = new PieChart(storageChart, "C");
             diskIOLineChart = new LineChart(diskIOChart, diskIOCounter, "MiB/s", "Lese-/Schreibrate");
-            networkRecLineChart = new LineChart(networkRecChart, networkRecCounter, "KiB/s", "Netzwerk Empfagsrate");
-            networkSenLineChart = new LineChart(networkSenChart, networkSenCounter, "KiB/s", "Netzwerk Senderate");
+
         }
 
         //Wir bei jedem Timer-Tick ausgefuehrt
@@ -88,6 +86,10 @@ namespace GUI_Geruest
             networkSenLineChart.refresh();
         }
 
-
+        private void networkComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            networkRecLineChart.changePerfCounter(new PerformanceCounter("Network Interface", "Bytes Received/sec", (string)networkComboBox.SelectedItem));
+            networkSenLineChart.changePerfCounter(new PerformanceCounter("Network Interface", "Bytes Sent/sec", (string)networkComboBox.SelectedItem));
+        }
     }
 }
