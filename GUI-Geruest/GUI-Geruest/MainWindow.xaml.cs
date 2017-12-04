@@ -13,6 +13,7 @@ namespace GUI_Geruest
         public MainWindow()
         {
             InitializeComponent();
+            fenster.Content = new Dashboard();
         }
         //Naviagtion
         private void farbeAendern(Button click)

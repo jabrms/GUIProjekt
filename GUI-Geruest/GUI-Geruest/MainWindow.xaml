@@ -22,7 +22,7 @@
                     <Button x:Name="ereignisse" Content="Ereignisse" Height="auto" HorizontalAlignment="stretch" VerticalAlignment="stretch" Width="auto" FontSize="20" Grid.Row="5" Click="Ereignisse_Click" Background="SkyBlue"/>
                 </Grid>
             </GroupBox>
-            <Frame Name="fenster" Source="Dashboard.xaml" DockPanel.Dock="Right" Margin="0,0,0,10" NavigationUIVisibility="Hidden" ContentRendered="fenster_ContentRendered"/>
+            <Frame Name="fenster" DockPanel.Dock="Right" Margin="0,0,0,10" NavigationUIVisibility="Hidden" ContentRendered="fenster_ContentRendered"/>
         </DockPanel>
     </Grid>
 </Window>
