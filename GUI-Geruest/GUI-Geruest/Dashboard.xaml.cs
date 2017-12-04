@@ -51,13 +51,11 @@ namespace GUI_Geruest
             
             foreach (String instance in instancenames)
             {
-
+                networkComboBox.SelectedItem = networkComboBox.Items[0];
                 networkComboBox.Items.Add(instance);
 
             }
-            networkRecLineChart = new LineChart(networkRecChart, new PerformanceCounter("Network Interface", "Bytes Received/sec", (string)networkComboBox.SelectedItem), "KiB/s", "Netzwerk Empfagsrate");
-            networkSenLineChart = new LineChart(networkSenChart, new PerformanceCounter("Network Interface", "Bytes Sent/sec", (string)networkComboBox.SelectedItem), "KiB/s", "Netzwerk Senderate");
-            networkComboBox.SelectedItem = networkComboBox.Items[0];
+            
 
 
 
@@ -82,14 +80,30 @@ namespace GUI_Geruest
             cpuLineChart.refresh();
             ramLineChart.refresh();
             diskIOLineChart.refresh();
+            if (networkRecLineChart == null || networkSenLineChart == null)
+            {
+                return;
+            }
             networkRecLineChart.refresh();
             networkSenLineChart.refresh();
         }
 
         private void networkComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            networkRecLineChart.changePerfCounter(new PerformanceCounter("Network Interface", "Bytes Received/sec", (string)networkComboBox.SelectedItem));
-            networkSenLineChart.changePerfCounter(new PerformanceCounter("Network Interface", "Bytes Sent/sec", (string)networkComboBox.SelectedItem));
+            if (networkComboBox.SelectedItem == networkComboBox.Items[0])
+            {
+                return;
+            }
+            else if (networkRecLineChart == null )
+            {
+                networkRecLineChart = new LineChart(networkRecChart, new PerformanceCounter("Network Interface", "Bytes Received/sec", (string)networkComboBox.SelectedItem), "KiB/s", "Netzwerk Empfagsrate");
+                networkSenLineChart = new LineChart(networkSenChart, new PerformanceCounter("Network Interface", "Bytes Sent/sec", (string)networkComboBox.SelectedItem), "KiB/s", "Netzwerk Senderate");
+            }
+            else
+            {
+                networkRecLineChart.changePerfCounter(new PerformanceCounter("Network Interface", "Bytes Received/sec", (string)networkComboBox.SelectedItem));
+                networkSenLineChart.changePerfCounter(new PerformanceCounter("Network Interface", "Bytes Sent/sec", (string)networkComboBox.SelectedItem));
+            }
         }
     }
 }

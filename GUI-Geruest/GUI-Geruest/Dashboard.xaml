@@ -109,6 +109,7 @@
                     </winformchart:Chart>
                 </WindowsFormsHost>
                 <ComboBox x:Name="networkComboBox" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Top" Width="500" SelectionChanged="networkComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Interface waehlen" HorizontalAlignment="Left"/>
                 </ComboBox>
 
             </Grid>
