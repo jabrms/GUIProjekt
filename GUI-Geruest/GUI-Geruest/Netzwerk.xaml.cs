@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Management;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 
 
@@ -23,10 +25,32 @@ namespace GUI_Geruest
     /// </summary>
     public partial class Netzwerk : Page
     {
+        DispatcherTimer perfCountTimer = new DispatcherTimer(); // Timer zur regelmaessigen Abfrage des aktuellen Ressourcenverbrauchs
+
+        //Abfrage der verfuegbaren Netzwerkinstanzen
+        static PerformanceCounterCategory category = new PerformanceCounterCategory("Network Interface");
+        static String[] instancenames = category.GetInstanceNames();
+
+        public LineChart networkRecLineChart;
+        public LineChart networkSenLineChart;
+
         public Netzwerk()
         {
             InitializeComponent();
             contentAendern();
+
+            //Graph
+            foreach (string instance in instancenames)
+            {
+                networkComboBox.SelectedItem = networkComboBox.Items[0];
+                networkComboBox.Items.Add(instance);
+
+            }
+
+            //Einrichtung Timer
+            perfCountTimer.Tick += PerfCountTimer_Tick;
+            perfCountTimer.Interval = new TimeSpan(0, 0, 0, 0, 200);
+            perfCountTimer.IsEnabled = true;
         }
 
         string[] ipAdressen;
@@ -145,6 +169,35 @@ namespace GUI_Geruest
                 contentAendern();
             }
 
+        }
+
+        private void PerfCountTimer_Tick(object sender, EventArgs e)
+        {
+            // Aktualisierung der Werte durch aufruf der PerformanceCounter
+            if (networkRecLineChart == null || networkSenLineChart == null)
+            {
+                return;
+            }
+            networkRecLineChart.refresh();
+            networkSenLineChart.refresh();
+        }
+
+        private void networkComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (networkComboBox.SelectedItem == networkComboBox.Items[0])
+            {
+                return;
+            }
+            else if (networkRecLineChart == null)
+            {
+                networkRecLineChart = new LineChart(networkRecChart, new PerformanceCounter("Network Interface", "Bytes Received/sec", (string)networkComboBox.SelectedItem), "KiB/s", "Netzwerk Empfagsrate");
+                networkSenLineChart = new LineChart(networkSenChart, new PerformanceCounter("Network Interface", "Bytes Sent/sec", (string)networkComboBox.SelectedItem), "KiB/s", "Netzwerk Senderate");
+            }
+            else
+            {
+                networkRecLineChart.changePerfCounter(new PerformanceCounter("Network Interface", "Bytes Received/sec", (string)networkComboBox.SelectedItem));
+                networkSenLineChart.changePerfCounter(new PerformanceCounter("Network Interface", "Bytes Sent/sec", (string)networkComboBox.SelectedItem));
+            }
         }
     }
 
