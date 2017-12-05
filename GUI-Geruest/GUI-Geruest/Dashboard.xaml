@@ -3,8 +3,6 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:DV="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
-      xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
       xmlns:winformchart="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization" 
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="500"
@@ -15,23 +13,17 @@
             <TextBlock DockPanel.Dock="Top" Width="auto" FontSize="30" Background="DarkGray" Foreground="White" Margin="5,5,5,5">Dashboard</TextBlock>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
                     <RowDefinition Height="10*" MinHeight="150"/>
                     <RowDefinition Height="10*" MinHeight="150"/>
                     <RowDefinition Height="10*" MinHeight="150"/>
                     <RowDefinition Height="*" MinHeight="25"/>
-
-                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="8.5*" MinWidth="250"/>
-                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="8.5*" MinWidth="250"/>
-                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <WindowsFormsHost x:Name="cpuGrid" Grid.Column="1" Grid.Row="1">
+                <WindowsFormsHost x:Name="cpuGrid" Grid.Column="0" Grid.Row="0">
                     <winformchart:Chart x:Name="cpuChart" BackColor="Transparent" BackSecondaryColor="Transparent">
                         <winformchart:Chart.Series>
                             <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
@@ -43,7 +35,7 @@
                     </winformchart:Chart>
                 </WindowsFormsHost>
 
-                <WindowsFormsHost x:Name="ramGrid" Grid.Column="3" Grid.Row="1">
+                <WindowsFormsHost x:Name="ramGrid" Grid.Column="1" Grid.Row="0">
                     <winformchart:Chart x:Name="ramChart" BackColor="Transparent" BackSecondaryColor="Transparent">
                         <winformchart:Chart.Series>
                             <winformchart:Series Name="RAM Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
@@ -59,7 +51,7 @@
 
 
 
-                <WindowsFormsHost x:Name="storageGrid" Grid.Column="1" Grid.Row="2">
+                <WindowsFormsHost x:Name="storageGrid" Grid.Column="0" Grid.Row="1">
                     <winformchart:Chart x:Name="storageChart" BackColor="Transparent" BackSecondaryColor="Transparent">
                         <winformchart:Chart.Series>
                             <winformchart:Series ChartType="Pie" BorderWidth="3" XValueType="DateTime"/>
@@ -71,7 +63,7 @@
                     </winformchart:Chart>
                 </WindowsFormsHost>
 
-                <WindowsFormsHost x:Name="diskIOGrid" Grid.Column="3" Grid.Row="2">
+                <WindowsFormsHost x:Name="diskIOGrid" Grid.Column="1" Grid.Row="1">
                     <winformchart:Chart x:Name="diskIOChart" BackColor="Transparent" BackSecondaryColor="Transparent">
                         <winformchart:Chart.Series>
                             <winformchart:Series Name="Festplatten Schreib und Leserate" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
@@ -83,7 +75,7 @@
                     </winformchart:Chart>
                 </WindowsFormsHost>
 
-                <WindowsFormsHost x:Name="networkRecGrid" Grid.Column="1" Grid.Row="3">
+                <WindowsFormsHost x:Name="networkRecGrid" Grid.Column="0" Grid.Row="2">
                     <winformchart:Chart x:Name="networkRecChart" BackColor="Transparent" BackSecondaryColor="Transparent">
                         <winformchart:Chart.Series>
                             <winformchart:Series Name="Netzwerk Empfagsrate" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
@@ -97,7 +89,7 @@
                 
                 
 
-                <WindowsFormsHost x:Name="networkSenGrid" Grid.Column="3" Grid.Row="3">
+                <WindowsFormsHost x:Name="networkSenGrid" Grid.Column="1" Grid.Row="2">
                     <winformchart:Chart x:Name="networkSenChart" BackColor="Transparent" BackSecondaryColor="Transparent">
                         <winformchart:Chart.Series>
                             <winformchart:Series ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
@@ -108,7 +100,7 @@
                         </winformchart:Chart.ChartAreas>
                     </winformchart:Chart>
                 </WindowsFormsHost>
-                <ComboBox x:Name="networkComboBox" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Top" Width="500" SelectionChanged="networkComboBox_SelectionChanged">
+                <ComboBox x:Name="networkComboBox" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top" Width="500" SelectionChanged="networkComboBox_SelectionChanged">
                     <ComboBoxItem Content="Interface waehlen" HorizontalAlignment="Left"/>
                 </ComboBox>
 

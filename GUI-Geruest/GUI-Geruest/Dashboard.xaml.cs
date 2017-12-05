@@ -27,15 +27,15 @@ namespace GUI_Geruest
     /// </summary>
     public partial class Dashboard : Page
     {
-        DispatcherTimer perfCountTimer = new DispatcherTimer(); // Timer zur regelmaessigen Abfrage des aktuellen Ressourcenverbrauchs
+        DispatcherTimer perfCountTimer = new DispatcherTimer();
 
         //Abfrage der verfuegbaren Netzwerkinstanzen
         static PerformanceCounterCategory category = new PerformanceCounterCategory("Network Interface");
         static String[] instancenames = category.GetInstanceNames();
         //PerformanceCounter fuer Auslesen der Daten
-        public PerformanceCounter cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
-        public PerformanceCounter ramCounter = new PerformanceCounter("Memory", "% Committed Bytes In Use");
-        public PerformanceCounter diskIOCounter = new PerformanceCounter("PhysicalDisk", "Disk Bytes/sec", "_Total");
+        public PerformanceCounter cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total"); // % der genutzten CPU-Zeit
+        public PerformanceCounter ramCounter = new PerformanceCounter("Memory", "% Committed Bytes In Use"); // % des belegten RAMs
+        public PerformanceCounter diskIOCounter = new PerformanceCounter("PhysicalDisk", "Disk Bytes/sec", "_Total"); // Schreib-/Leserate aller Festplatten
 
 
         public LineChart cpuLineChart;
@@ -49,6 +49,7 @@ namespace GUI_Geruest
         {
             InitializeComponent();
             
+            // Eintragen der vorhandenen Netzwerk Interfaces ins DropDownMenu
             foreach (String instance in instancenames)
             {
                 networkComboBox.SelectedItem = networkComboBox.Items[0];
@@ -80,7 +81,7 @@ namespace GUI_Geruest
             cpuLineChart.refresh();
             ramLineChart.refresh();
             diskIOLineChart.refresh();
-            if (networkRecLineChart == null || networkSenLineChart == null)
+            if (networkRecLineChart == null || networkSenLineChart == null) // verhindert Aktualisierung von Netzwerkcharts wenn kein Interface gewaehlt wurde
             {
                 return;
             }
@@ -88,6 +89,7 @@ namespace GUI_Geruest
             networkSenLineChart.refresh();
         }
 
+        // wird aktiviert, wenn das netzwerkinterface geaendert wird
         private void networkComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (networkComboBox.SelectedItem == networkComboBox.Items[0])
