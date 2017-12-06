@@ -80,6 +80,7 @@
     <Compile Include="Ereignisse.xaml.cs">
       <DependentUpon>Ereignisse.xaml</DependentUpon>
     </Compile>
+    <Compile Include="eventLogListe.cs" />
     <Compile Include="Netzwerk.xaml.cs">
       <DependentUpon>Netzwerk.xaml</DependentUpon>
     </Compile>
