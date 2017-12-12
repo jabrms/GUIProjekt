@@ -16,7 +16,7 @@ namespace GUI_Geruest
 
             DriveInfo driveInfo = new DriveInfo(drive);
 
-            chart.Titles.Add("Festplattenbelegung: " + drive);
+            chart.Titles.Add("Festplattenbelegung " + drive);
             chart.Series[0].Points.Add(driveInfo.TotalFreeSpace);
             chart.Series[0].Points[0].Label = driveInfo.TotalFreeSpace / 1073741824 + " GiB frei";
             chart.Series[0].Points.Add(driveInfo.TotalSize - driveInfo.TotalFreeSpace);

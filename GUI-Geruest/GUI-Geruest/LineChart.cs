@@ -56,8 +56,10 @@ namespace GUI_Geruest
 
             chart.Series.Add("Schreiben");
             chart.Series[1].ChartArea = "chartArea";
-            chart.Series[1].BorderWidth = 2;
+            chart.Series[1].BorderWidth = 1;
             chart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+
+            chart.Series[0].IsVisibleInLegend = true;
 
             if (dataType == "Percentage")
             {

@@ -13,60 +13,69 @@
         <DockPanel>
             <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="30">Netzwerk</TextBlock>
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" Height="auto"> 
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--<Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>-->
+                <TextBlock Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="auto" ScrollViewer.VerticalScrollBarVisibility="Visible"> 
                     <Grid Margin="5,5,0,0" VerticalAlignment="Stretch" Grid.Row="0"> 
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="2.5*" MinHeight="84"/>
+                            <RowDefinition Height="2*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="1.5*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="170"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Label x:Name="ip" Content="IP-Adresse:" Grid.Column="0" Grid.Row="0" FontSize="20" Margin="0,0,0,10" />
-                        <Label x:Name="ip_info" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="sm" Content="Subnetmask:" Grid.Column="0" Grid.Row="1" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="sm_info" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="gw" Content="default Gateway:" Grid.Column="0" Grid.Row="2" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="gw_info" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="desc" Content="Beschreibung:" Grid.Column="0" Grid.Row="3" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="desc_info" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="hn" Content="Hostname:" Grid.Column="0" Grid.Row="4" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="hn_info" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="mac" Content="MAC-Adresse:" Grid.Column="0" Grid.Row="5" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="mac_info" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="dhcp" Grid.Column="0" Grid.Row="6" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="dhcp_info" Grid.Column="1" Grid.Row="6" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="dns" Grid.Column="0" Grid.Row="7" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="dns_info" Grid.Column="1" Grid.Row="7" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="dnsSuf" Grid.Column="0" Grid.Row="8" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="dnsSuf_info" Grid.Column="1" Grid.Row="8" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="dhcpEnabled" Content="DHCP aktiviert:" Grid.Column="0" Grid.Row="9" FontSize="20" Margin="0,0,0,10"/>
-                        <Label x:Name="dhcpEnabled_info" Grid.Column="1" Grid.Row="9" FontSize="20" Margin="0,0,0,10"/>
+                        <Label x:Name="ip" Content="IP-Adresse:" Grid.Column="0" Grid.Row="0" FontSize="14" VerticalAlignment="Stretch" />
+                        <Label x:Name="ip_info" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="sm" Content="Subnetmask:" Grid.Column="0" Grid.Row="1" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="sm_info" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="gw" Content="default Gateway:" Grid.Column="0" Grid.Row="2" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="gw_info" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="desc" Content="Beschreibung:" Grid.Column="0" Grid.Row="3" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="desc_info" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="hn" Content="Hostname:" Grid.Column="0" Grid.Row="4" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="hn_info" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="mac" Content="MAC-Adresse:" Grid.Column="0" Grid.Row="5" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="mac_info" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="dhcp" Grid.Column="0" Grid.Row="6" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="dhcp_info" Grid.Column="1" Grid.Row="6" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="dns" Grid.Column="0" Grid.Row="7" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="dns_info" Grid.Column="1" Grid.Row="7" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="dnsSuf" Grid.Column="0" Grid.Row="8" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="dnsSuf_info" Grid.Column="1" Grid.Row="8" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="dhcpEnabled" Content="DHCP aktiviert:" Grid.Column="0" Grid.Row="9" FontSize="14"  VerticalAlignment="Stretch"/>
+                        <Label x:Name="dhcpEnabled_info" Grid.Column="1" Grid.Row="9" FontSize="14"  VerticalAlignment="Stretch"/>
 
-                        <Button x:Name="mehrZeigen" Content="Details anzeigen" FontSize="18" Padding="15,15,15,15" Background="SkyBlue" Click="mehrZeigen_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="11" Grid.Column="0"/>
-                        <Button x:Name="wenigerZeigen" Content="weniger Details" FontSize="18" Padding="15,15,15,15" Background="White" Click="wenigerZeigen_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="3"/>
+                        <Button x:Name="mehrZeigen" Content="Details anzeigen" FontSize="18"  Background="SkyBlue" Click="mehrZeigen_Click" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Grid.Row="10" Grid.Column="0"/>
+                        <Button x:Name="wenigerZeigen" Content="weniger Details" FontSize="18"  Background="White" Click="wenigerZeigen_Click" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="3"/>
                     </Grid>
                 </TextBlock>
-                <Grid Grid.Column="1">
+                <Grid Grid.Column="0" Grid.Row="1">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="4*"/>
-                        <RowDefinition Height="4*"/>
+                        <!--<RowDefinition Height="4*"/>
+                        <RowDefinition Height="4*"/>-->
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="25"/>
                     </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
                     <WindowsFormsHost x:Name="networkRecGrid" Grid.Row="0">
                         <winformchart:Chart x:Name="networkRecChart" BackColor="Transparent" BackSecondaryColor="Transparent">
                             <winformchart:Chart.Series>
@@ -79,7 +88,7 @@
                         </winformchart:Chart>
                     </WindowsFormsHost>
 
-                    <WindowsFormsHost x:Name="networkSenGrid" Grid.Row="1">
+                    <WindowsFormsHost x:Name="networkSenGrid" Grid.Row="0" Grid.Column="1">
                         <winformchart:Chart x:Name="networkSenChart" BackColor="Transparent" BackSecondaryColor="Transparent">
                             <winformchart:Chart.Series>
                                 <winformchart:Series ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
@@ -90,7 +99,7 @@
                             </winformchart:Chart.ChartAreas>
                         </winformchart:Chart>
                     </WindowsFormsHost>
-                    <ComboBox x:Name="networkComboBox" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Width="500" SelectionChanged="networkComboBox_SelectionChanged">
+                    <ComboBox x:Name="networkComboBox" HorizontalAlignment="Stretch" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Top" SelectionChanged="networkComboBox_SelectionChanged">
                         <ComboBoxItem Content="Interface waehlen" HorizontalAlignment="Left"/>
                     </ComboBox>
                 </Grid>

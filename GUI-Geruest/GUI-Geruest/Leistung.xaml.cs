@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using Microsoft.VisualBasic.Devices;
+using System.Text.RegularExpressions;
 
 namespace GUI_Geruest
 {
@@ -33,6 +34,8 @@ namespace GUI_Geruest
         static string[] diskInstancenames = diskCategory.GetInstanceNames();
 
         public LineChart diskLineChart;
+        public PieChart diskPieChart;
+
 
         public Leistung()
         {
@@ -58,9 +61,13 @@ namespace GUI_Geruest
             foreach (String diskInstance in diskInstancenames)
             {
                 diskComboBox.SelectedItem = diskComboBox.Items[0];
-                diskComboBox.Items.Add(diskInstance);
-
+                if (diskInstance != "_Total")
+                {
+                    diskComboBox.Items.Add(diskInstance);
+                }
             }
+
+            
 
             //Einrichtung Timer
             perfCountTimer.Tick += PerfCountTimer_Tick;
@@ -389,18 +396,25 @@ namespace GUI_Geruest
 
         private void diskComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (diskComboBox.SelectedItem == diskComboBox.Items[0] || diskComboBox.SelectedItem == diskComboBox.Items[diskComboBox.Items.IndexOf("_Total")])
+            if (diskComboBox.SelectedItem == diskComboBox.Items[0])
             {
                 return;
             }
             else if (diskLineChart == null)
             {
                 diskLineChart = new LineChart(diskIOChart, new PerformanceCounter("PhysicalDisk", "Disk Read Bytes/sec", (string)diskComboBox.SelectedItem), new PerformanceCounter("PhysicalDisk", "Disk Write Bytes/sec", (string)diskComboBox.SelectedItem), "MiB/s", "Lese-/Schreibrate");
+                diskPieChart = new PieChart(diskUtilChart, getDisk(diskComboBox.SelectedItem.ToString()));
             }
             else
             {
                 diskLineChart.changePerfCounter(new PerformanceCounter("PhysicalDisk", "Disk Read Bytes/sec", (string)diskComboBox.SelectedItem), new PerformanceCounter("PhysicalDisk", "Disk Write Bytes/sec", (string)diskComboBox.SelectedItem));
             }
+        }
+
+        private string getDisk(string input)
+        {
+            Regex reg = new Regex(@"[A-Z]:");
+            return reg.Match(input).ToString();
         }
     }
 }

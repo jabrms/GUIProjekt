@@ -9,9 +9,9 @@
 	Title="Leistung">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1.5*"/>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Name="cpuGrid" Grid.Row="0">
             <DockPanel>
@@ -175,7 +175,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
@@ -183,12 +182,12 @@
                 <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
 
-            <Label Name="diskLabel" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Label Name="diskLabel" Content="Speichermedien-Informationen" Grid.Row="0" Grid.ColumnSpan="3" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
             <WindowsFormsHost x:Name="diskIOGrid" Grid.Row="1">
                 <winformchart:Chart x:Name="diskIOChart" BackColor="Transparent" BackSecondaryColor="Transparent">
                     <winformchart:Chart.Series>
-                        <winformchart:Series Name="Lesen" ChartType="FastLine" BorderWidth="2" XValueType="DateTime"/>
+                        <winformchart:Series Name="Lesen" ChartType="FastLine" BorderWidth="1" XValueType="DateTime" IsVisibleInLegend="False"/>
                     </winformchart:Chart.Series>
                     <winformchart:Chart.ChartAreas>
                         <winformchart:ChartArea Name="chartArea" BackColor="Transparent" >
