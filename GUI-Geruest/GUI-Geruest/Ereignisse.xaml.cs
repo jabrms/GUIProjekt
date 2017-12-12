@@ -24,21 +24,26 @@ namespace GUI_Geruest
     public partial class Ereignisse : Page
     {
         List<eventLogListe> SystemList = new List<eventLogListe>();
-        List<eventLogListe> SecurityList = new List<eventLogListe>();
         List<eventLogListe> ApplicationList = new List<eventLogListe>();
+
+        EventLog applicationAnzahl = new EventLog("Application");
+        EventLog systemAnzahl = new EventLog("System");
+        List<eventLogListe> gesamtList = new List<eventLogListe>();
 
         public Ereignisse()
         {
            
             InitializeComponent();
-            SystemList = eventlogRead(20, "System");
-            //SecurityList = eventlogRead(20, "Security"); TODO berechtigungen fehlen
-            ApplicationList = eventlogRead(20, "Application");
+
+            SystemList = eventlogRead(int.Parse(anzahlElemente.Text), "System");
+            ApplicationList = eventlogRead(int.Parse(anzahlElemente.Text), "Application");
             //anzEreig.Content = "Anzahl der Ereignisse im Windows Log: " + (eventlogRead(10, "System")); //+eventlogRead(10, "Application") + eventlogRead(10, "Security") + eventlogRead(10, "Setup") + eventlogRead(10, "Forwarded Events"));
             listeSystem.ItemsSource = SystemList;
-            listeSecurity.ItemsSource = SecurityList; 
-            listeApplication.ItemsSource = ApplicationList; 
+            listeApplication.ItemsSource = ApplicationList;
         }
+
+        
+       
 
         List<eventLogListe> eventlogRead(int anzahl, string protokoll)
         {
@@ -47,6 +52,8 @@ namespace GUI_Geruest
             int x = 0;
 
             EventLog log = new EventLog(protokoll);
+
+            gesamtAnzLogs.Content = "Anzahl Logs: " + log.Entries.Count;
 
             foreach (EventLogEntry entry in log.Entries)
             {
@@ -64,11 +71,6 @@ namespace GUI_Geruest
                 }
             }
             return EventList;
-        }
-
-        private void tabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
 
         private void Application_DragOver(object sender, DragEventArgs e)
@@ -95,13 +97,38 @@ namespace GUI_Geruest
             zeit.Content = selected.timeGen;
         }
 
+        void listeAktualisieren()
+        {
+            //TODO nur applikation
+            ApplicationList.Clear();
+            ApplicationList = eventlogRead(int.Parse(anzahlElemente.Text), "Application");
+            listeApplication.ItemsSource = ApplicationList;
+            SystemList.Clear();
+            SystemList = eventlogRead(int.Parse(anzahlElemente.Text), "System");
+            listeSystem.ItemsSource = SystemList;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            listeAktualisieren();
+        }
+
+        private void anzahlElemente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                listeAktualisieren();
+            }
+        }
         //private void anzahlElemente_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{
-        //    EventList.Clear();
-        //    eventlogRead(anzahlElemente.SelectedIndex, "System");
-        //    listeEreignisse.ItemsSource = EventList;
+        //    ApplicationList.Clear();
+        //    eventlogRead(anzahlElemente.SelectedIndex, "Application");
+        //    listeApplication.ItemsSource = ApplicationList;
         //}
-        //TODO wie viele Events anzeigen
+        ////TODO wie viele Events anzeigen
+
+        //TODO Header sotieren implementieren
     }
 }
 

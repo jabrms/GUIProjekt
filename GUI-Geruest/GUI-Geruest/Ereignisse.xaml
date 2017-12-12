@@ -10,7 +10,18 @@
     <Grid>
         <DockPanel>
             <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="30">Ereignisse</TextBlock>
-            <ComboBox x:Name="anzahlElemente" DockPanel.Dock="Top" HorizontalAlignment="Left" SelectedIndex="100"/>
+            <Grid DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label HorizontalAlignment="Left" Grid.Column="0">anzuzeigende Logs</Label >
+                <TextBox x:Name="anzahlElemente"  Width="50" Grid.Column="1" HorizontalAlignment="Left" Text="20" KeyDown="anzahlElemente_KeyDown" />
+                <Button Grid.Column="2" Margin="10,0,10,0" Width="25" Click="Button_Click">OK</Button>
+                <Label x:Name="gesamtAnzLogs" Grid.Column="3" HorizontalAlignment="Right" Margin="20,0,0,0">Anzahl Logs: </Label>
+            </Grid>
             <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="auto" Width="auto">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -43,22 +54,6 @@
                     <TabItem Header="System">
                         <Grid>
                             <ListView x:Name="listeSystem" SelectionChanged="listeEreignisse_SelectionChanged">
-                                <ListView.View>
-                                    <GridView>
-                                        <GridViewColumn Width="120" Header="Index" DisplayMemberBinding="{Binding Path=index}"/>
-                                        <GridViewColumn Width="120" Header="ID" DisplayMemberBinding="{Binding Path=id}"/>
-                                        <GridViewColumn Width="100" Header="Quelle" DisplayMemberBinding="{Binding Path=source}"/>
-                                        <GridViewColumn Width="100" Header="Level" DisplayMemberBinding="{Binding Path=catagory}"/>
-                                        <GridViewColumn Width="100" Header="Datum" DisplayMemberBinding="{Binding Path=timeWritte}"/>
-                                        <GridViewColumn Width="100" Header="Typ" DisplayMemberBinding="{Binding Path=type}"/>
-                                    </GridView>
-                                </ListView.View>
-                            </ListView>
-                        </Grid>
-                    </TabItem>
-                    <TabItem Header="Security">
-                        <Grid>
-                            <ListView x:Name="listeSecurity" SelectionChanged="listeEreignisse_SelectionChanged">
                                 <ListView.View>
                                     <GridView>
                                         <GridViewColumn Width="120" Header="Index" DisplayMemberBinding="{Binding Path=index}"/>
