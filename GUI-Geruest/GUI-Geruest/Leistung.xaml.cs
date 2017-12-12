@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
+using Microsoft.VisualBasic.Devices;
 
 namespace GUI_Geruest
 {
@@ -14,11 +15,24 @@ namespace GUI_Geruest
     {
         DispatcherTimer perfCountTimer = new DispatcherTimer();
 
+        //einzelne Prozessorkerne abrufen
         static PerformanceCounterCategory category = new PerformanceCounterCategory("Processor");
         static string[] instancenames = category.GetInstanceNames();
 
+        //Arrays fuer PerfCounter/LineCharts der Kerne
         public PerformanceCounter[] cpuPerfCounter = new PerformanceCounter[8];
         public LineChart[] cpuLineCharts = new LineChart[8];
+
+        // RAM PerfCounter/LineChart
+        public PerformanceCounter ramAvCounter = new PerformanceCounter("Memory", "Available Bytes");
+        public PerformanceCounter ramComCounter = new PerformanceCounter("Memory", "Committed Bytes");
+        public LineChart ramLineChart;
+
+        // alle verfuegbaren Speichermedien abrufen
+        static PerformanceCounterCategory diskCategory = new PerformanceCounterCategory("PhysicalDisk");
+        static string[] diskInstancenames = diskCategory.GetInstanceNames();
+
+        public LineChart diskLineChart;
 
         public Leistung()
         {
@@ -33,9 +47,20 @@ namespace GUI_Geruest
                 i++;
             }
 
-
-
             setNumberOfCpuCharts();
+
+            ramLineChart = new LineChart(ramChart, ramComCounter, "GiB", "RAM-Belegung");
+            ramChart.ChartAreas[0].AxisY.Maximum = (ramComCounter.NextValue() + ramAvCounter.NextValue()) / 1073741824;
+
+            ramLabel.Content = "Physikalischer Speicher: " + Math.Round((decimal)new ComputerInfo().TotalPhysicalMemory / 1073741824, 2) + " GiB";
+
+            // Eintragen der vorhandenen Speichermedien ins DropDownMenu
+            foreach (String diskInstance in diskInstancenames)
+            {
+                diskComboBox.SelectedItem = diskComboBox.Items[0];
+                diskComboBox.Items.Add(diskInstance);
+
+            }
 
             //Einrichtung Timer
             perfCountTimer.Tick += PerfCountTimer_Tick;
@@ -55,6 +80,20 @@ namespace GUI_Geruest
                 lineChart.refresh();
                 
             }
+
+            ramLineChart.refresh();
+
+            ramUsedLabel.Content = "Genutzter Speicher: " + Math.Round((ramComCounter.NextValue() / 1073741824), 2) + " GiB";
+            ramAvailableLabel.Content = "Freier Speicher: " + Math.Round((ramAvCounter.NextValue() / 1073741824), 2) + " GiB";
+
+            if (diskLineChart == null)
+            {
+                return;
+            }
+
+            diskLineChart.refresh();
+            
+
         }
 
 
@@ -102,12 +141,12 @@ namespace GUI_Geruest
 
                     cpu1Grid.SetValue(Grid.ColumnProperty, 2);
                     cpu1Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu1Grid.SetValue(Grid.RowProperty, 0);
+                    cpu1Grid.SetValue(Grid.RowProperty, 1);
                     cpu1Grid.SetValue(Grid.RowSpanProperty, 2);
 
                     cpu2Grid.SetValue(Grid.ColumnProperty, 4);
                     cpu2Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu2Grid.SetValue(Grid.RowProperty, 0);
+                    cpu2Grid.SetValue(Grid.RowProperty, 1);
                     cpu2Grid.SetValue(Grid.RowSpanProperty, 2);
 
                     column1.Width = GridLength.Auto;
@@ -129,17 +168,17 @@ namespace GUI_Geruest
 
                     cpu1Grid.SetValue(Grid.ColumnProperty, 3);
                     cpu1Grid.SetValue(Grid.ColumnSpanProperty, 2);
-                    cpu1Grid.SetValue(Grid.RowProperty, 0);
+                    cpu1Grid.SetValue(Grid.RowProperty, 1);
                     cpu1Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu2Grid.SetValue(Grid.ColumnProperty, 0);
                     cpu2Grid.SetValue(Grid.ColumnSpanProperty, 2);
-                    cpu2Grid.SetValue(Grid.RowProperty, 1);
+                    cpu2Grid.SetValue(Grid.RowProperty, 2);
                     cpu2Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu3Grid.SetValue(Grid.ColumnProperty, 3);
                     cpu3Grid.SetValue(Grid.ColumnSpanProperty, 2);
-                    cpu3Grid.SetValue(Grid.RowProperty, 1);
+                    cpu3Grid.SetValue(Grid.RowProperty, 2);
                     cpu3Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     column2.Width = GridLength.Auto;
@@ -161,22 +200,22 @@ namespace GUI_Geruest
 
                     cpu1Grid.SetValue(Grid.ColumnProperty, 2);
                     cpu1Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu1Grid.SetValue(Grid.RowProperty, 0);
+                    cpu1Grid.SetValue(Grid.RowProperty, 1);
                     cpu1Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu2Grid.SetValue(Grid.ColumnProperty, 4);
                     cpu2Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu2Grid.SetValue(Grid.RowProperty, 0);
+                    cpu2Grid.SetValue(Grid.RowProperty, 1);
                     cpu2Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu3Grid.SetValue(Grid.ColumnProperty, 0);
                     cpu3Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu3Grid.SetValue(Grid.RowProperty, 1);
+                    cpu3Grid.SetValue(Grid.RowProperty, 2);
                     cpu3Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu4Grid.SetValue(Grid.ColumnProperty, 2);
                     cpu4Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu4Grid.SetValue(Grid.RowProperty, 1);
+                    cpu4Grid.SetValue(Grid.RowProperty, 2);
                     cpu4Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     column1.Width = GridLength.Auto;
@@ -201,27 +240,27 @@ namespace GUI_Geruest
 
                     cpu1Grid.SetValue(Grid.ColumnProperty, 2);
                     cpu1Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu1Grid.SetValue(Grid.RowProperty, 0);
+                    cpu1Grid.SetValue(Grid.RowProperty, 1);
                     cpu1Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu2Grid.SetValue(Grid.ColumnProperty, 4);
                     cpu2Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu2Grid.SetValue(Grid.RowProperty, 0);
+                    cpu2Grid.SetValue(Grid.RowProperty, 1);
                     cpu2Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu3Grid.SetValue(Grid.ColumnProperty, 0);
                     cpu3Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu3Grid.SetValue(Grid.RowProperty, 1);
+                    cpu3Grid.SetValue(Grid.RowProperty, 2);
                     cpu3Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu4Grid.SetValue(Grid.ColumnProperty, 2);
                     cpu4Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu4Grid.SetValue(Grid.RowProperty, 1);
+                    cpu4Grid.SetValue(Grid.RowProperty, 2);
                     cpu4Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu5Grid.SetValue(Grid.ColumnProperty, 4);
                     cpu5Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu5Grid.SetValue(Grid.RowProperty, 1);
+                    cpu5Grid.SetValue(Grid.RowProperty, 2);
                     cpu5Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     column1.Width = GridLength.Auto;
@@ -247,32 +286,32 @@ namespace GUI_Geruest
 
                     cpu1Grid.SetValue(Grid.ColumnProperty, 1);
                     cpu1Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu1Grid.SetValue(Grid.RowProperty, 0);
+                    cpu1Grid.SetValue(Grid.RowProperty, 1);
                     cpu1Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu2Grid.SetValue(Grid.ColumnProperty, 3);
                     cpu2Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu2Grid.SetValue(Grid.RowProperty, 0);
+                    cpu2Grid.SetValue(Grid.RowProperty, 1);
                     cpu2Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu3Grid.SetValue(Grid.ColumnProperty, 4);
                     cpu3Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu3Grid.SetValue(Grid.RowProperty, 0);
+                    cpu3Grid.SetValue(Grid.RowProperty, 1);
                     cpu3Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu4Grid.SetValue(Grid.ColumnProperty, 0);
                     cpu4Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu4Grid.SetValue(Grid.RowProperty, 1);
+                    cpu4Grid.SetValue(Grid.RowProperty, 2);
                     cpu4Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu5Grid.SetValue(Grid.ColumnProperty, 1);
                     cpu5Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu5Grid.SetValue(Grid.RowProperty, 1);
+                    cpu5Grid.SetValue(Grid.RowProperty, 2);
                     cpu5Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu6Grid.SetValue(Grid.ColumnProperty, 3);
                     cpu6Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu6Grid.SetValue(Grid.RowProperty, 1);
+                    cpu6Grid.SetValue(Grid.RowProperty, 2);
                     cpu6Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     column2.Width = GridLength.Auto;
@@ -297,37 +336,37 @@ namespace GUI_Geruest
 
                     cpu1Grid.SetValue(Grid.ColumnProperty, 1);
                     cpu1Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu1Grid.SetValue(Grid.RowProperty, 0);
+                    cpu1Grid.SetValue(Grid.RowProperty, 1);
                     cpu1Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu2Grid.SetValue(Grid.ColumnProperty, 3);
                     cpu2Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu2Grid.SetValue(Grid.RowProperty, 0);
+                    cpu2Grid.SetValue(Grid.RowProperty, 1);
                     cpu2Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu3Grid.SetValue(Grid.ColumnProperty, 4);
                     cpu3Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu3Grid.SetValue(Grid.RowProperty, 0);
+                    cpu3Grid.SetValue(Grid.RowProperty, 1);
                     cpu3Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu4Grid.SetValue(Grid.ColumnProperty, 0);
                     cpu4Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu4Grid.SetValue(Grid.RowProperty, 1);
+                    cpu4Grid.SetValue(Grid.RowProperty, 2);
                     cpu4Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu5Grid.SetValue(Grid.ColumnProperty, 1);
                     cpu5Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu5Grid.SetValue(Grid.RowProperty, 1);
+                    cpu5Grid.SetValue(Grid.RowProperty, 2);
                     cpu5Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu6Grid.SetValue(Grid.ColumnProperty, 3);
                     cpu6Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu6Grid.SetValue(Grid.RowProperty, 1);
+                    cpu6Grid.SetValue(Grid.RowProperty, 2);
                     cpu6Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     cpu7Grid.SetValue(Grid.ColumnProperty, 4);
                     cpu7Grid.SetValue(Grid.ColumnSpanProperty, 1);
-                    cpu7Grid.SetValue(Grid.RowProperty, 1);
+                    cpu7Grid.SetValue(Grid.RowProperty, 2);
                     cpu7Grid.SetValue(Grid.RowSpanProperty, 1);
 
                     column2.Width = GridLength.Auto;
@@ -345,6 +384,22 @@ namespace GUI_Geruest
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void diskComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (diskComboBox.SelectedItem == diskComboBox.Items[0] || diskComboBox.SelectedItem == diskComboBox.Items[diskComboBox.Items.IndexOf("_Total")])
+            {
+                return;
+            }
+            else if (diskLineChart == null)
+            {
+                diskLineChart = new LineChart(diskIOChart, new PerformanceCounter("PhysicalDisk", "Disk Read Bytes/sec", (string)diskComboBox.SelectedItem), new PerformanceCounter("PhysicalDisk", "Disk Write Bytes/sec", (string)diskComboBox.SelectedItem), "MiB/s", "Lese-/Schreibrate");
+            }
+            else
+            {
+                diskLineChart.changePerfCounter(new PerformanceCounter("PhysicalDisk", "Disk Read Bytes/sec", (string)diskComboBox.SelectedItem), new PerformanceCounter("PhysicalDisk", "Disk Write Bytes/sec", (string)diskComboBox.SelectedItem));
             }
         }
     }

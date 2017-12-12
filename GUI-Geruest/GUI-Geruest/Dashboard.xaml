@@ -100,8 +100,8 @@
                         </winformchart:Chart.ChartAreas>
                     </winformchart:Chart>
                 </WindowsFormsHost>
-                <ComboBox x:Name="networkComboBox" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top" Width="500" SelectionChanged="networkComboBox_SelectionChanged">
-                    <ComboBoxItem Content="Interface waehlen" HorizontalAlignment="Left"/>
+                <ComboBox x:Name="networkComboBox" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" VerticalAlignment="Top" HorizontalAlignment="Stretch" SelectionChanged="networkComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Interface wählen" HorizontalAlignment="Left"/>
                 </ComboBox>
 
             </Grid>

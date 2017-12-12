@@ -7,123 +7,218 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="Leistung">
-
     <Grid>
-        <DockPanel>
-            <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="30">Leistung</TextBlock>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Name="column0"/>
-                    <ColumnDefinition Name="column1"/>
-                    <ColumnDefinition Name="column2"/>
-                    <ColumnDefinition Name="column3"/>
-                    <ColumnDefinition Name="column4"/>
-                </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Name="cpuGrid" Grid.Row="0">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="30">Leistung</TextBlock>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Name="column0"/>
+                        <ColumnDefinition Name="column1"/>
+                        <ColumnDefinition Name="column2"/>
+                        <ColumnDefinition Name="column3"/>
+                        <ColumnDefinition Name="column4"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Name="cpuHeader" Content="Prozessorleistung" Grid.Row="0" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+
+                    <WindowsFormsHost x:Name="cpu0Grid" Grid.Column="0" Grid.Row="1">
+                        <winformchart:Chart x:Name="cpu0Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                            <winformchart:Chart.Series>
+                                <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                            </winformchart:Chart.Series>
+                            <winformchart:Chart.ChartAreas>
+                                <winformchart:ChartArea BackColor="Transparent" >
+                                </winformchart:ChartArea>
+                            </winformchart:Chart.ChartAreas>
+                        </winformchart:Chart>
+                    </WindowsFormsHost>
+
+                    <WindowsFormsHost x:Name="cpu1Grid" Grid.Column="1" Grid.Row="1">
+                        <winformchart:Chart x:Name="cpu1Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                            <winformchart:Chart.Series>
+                                <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                            </winformchart:Chart.Series>
+                            <winformchart:Chart.ChartAreas>
+                                <winformchart:ChartArea BackColor="Transparent" >
+                                </winformchart:ChartArea>
+                            </winformchart:Chart.ChartAreas>
+                        </winformchart:Chart>
+                    </WindowsFormsHost>
+
+                    <WindowsFormsHost x:Name="cpu2Grid" Grid.Column="2" Grid.Row="1">
+                        <winformchart:Chart x:Name="cpu2Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                            <winformchart:Chart.Series>
+                                <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                            </winformchart:Chart.Series>
+                            <winformchart:Chart.ChartAreas>
+                                <winformchart:ChartArea BackColor="Transparent" >
+                                </winformchart:ChartArea>
+                            </winformchart:Chart.ChartAreas>
+                        </winformchart:Chart>
+                    </WindowsFormsHost>
+
+                    <WindowsFormsHost x:Name="cpu3Grid" Grid.Column="3" Grid.Row="1">
+                        <winformchart:Chart x:Name="cpu3Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                            <winformchart:Chart.Series>
+                                <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                            </winformchart:Chart.Series>
+                            <winformchart:Chart.ChartAreas>
+                                <winformchart:ChartArea BackColor="Transparent" >
+                                </winformchart:ChartArea>
+                            </winformchart:Chart.ChartAreas>
+                        </winformchart:Chart>
+                    </WindowsFormsHost>
+
+                    <WindowsFormsHost x:Name="cpu4Grid" Grid.Column="0" Grid.Row="2">
+                        <winformchart:Chart x:Name="cpu4Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                            <winformchart:Chart.Series>
+                                <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                            </winformchart:Chart.Series>
+                            <winformchart:Chart.ChartAreas>
+                                <winformchart:ChartArea BackColor="Transparent" >
+                                </winformchart:ChartArea>
+                            </winformchart:Chart.ChartAreas>
+                        </winformchart:Chart>
+                    </WindowsFormsHost>
+
+                    <WindowsFormsHost x:Name="cpu5Grid" Grid.Column="1" Grid.Row="2">
+                        <winformchart:Chart x:Name="cpu5Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                            <winformchart:Chart.Series>
+                                <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                            </winformchart:Chart.Series>
+                            <winformchart:Chart.ChartAreas>
+                                <winformchart:ChartArea BackColor="Transparent" >
+                                </winformchart:ChartArea>
+                            </winformchart:Chart.ChartAreas>
+                        </winformchart:Chart>
+                    </WindowsFormsHost>
+
+                    <WindowsFormsHost x:Name="cpu6Grid" Grid.Column="2" Grid.Row="2">
+                        <winformchart:Chart x:Name="cpu6Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                            <winformchart:Chart.Series>
+                                <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                            </winformchart:Chart.Series>
+                            <winformchart:Chart.ChartAreas>
+                                <winformchart:ChartArea BackColor="Transparent" >
+                                </winformchart:ChartArea>
+                            </winformchart:Chart.ChartAreas>
+                        </winformchart:Chart>
+                    </WindowsFormsHost>
+
+                    <WindowsFormsHost x:Name="cpu7Grid" Grid.Column="3" Grid.Row="2">
+                        <winformchart:Chart x:Name="cpu7Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                            <winformchart:Chart.Series>
+                                <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                            </winformchart:Chart.Series>
+                            <winformchart:Chart.ChartAreas>
+                                <winformchart:ChartArea BackColor="Transparent" >
+                                </winformchart:ChartArea>
+                            </winformchart:Chart.ChartAreas>
+                        </winformchart:Chart>
+                    </WindowsFormsHost>
+
+
+                </Grid>
+            </DockPanel>
+        </Grid>
+
+        <Grid Name="restGrid" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Name="ramHeader" Grid.ColumnSpan="2" Content="RAM-Leistung" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+
+            <WindowsFormsHost x:Name="ramGrid" Grid.Column="0" Grid.Row="1">
+                <winformchart:Chart x:Name="ramChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                    <winformchart:Chart.Series>
+                        <winformchart:Series Name="RAM-Belegung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                    </winformchart:Chart.Series>
+                    <winformchart:Chart.ChartAreas>
+                        <winformchart:ChartArea BackColor="Transparent" >
+                        </winformchart:ChartArea>
+                    </winformchart:Chart.ChartAreas>
+                </winformchart:Chart>
+            </WindowsFormsHost>
+            <Grid Grid.Column="1" Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-
-                <WindowsFormsHost x:Name="cpu0Grid" Grid.Column="0" Grid.Row="0">
-                    <winformchart:Chart x:Name="cpu0Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
-                        <winformchart:Chart.Series>
-                            <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
-                        </winformchart:Chart.Series>
-                        <winformchart:Chart.ChartAreas>
-                            <winformchart:ChartArea BackColor="Transparent" >
-                            </winformchart:ChartArea>
-                        </winformchart:Chart.ChartAreas>
-                    </winformchart:Chart>
-                </WindowsFormsHost>
-
-                <WindowsFormsHost x:Name="cpu1Grid" Grid.Column="1" Grid.Row="0">
-                    <winformchart:Chart x:Name="cpu1Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
-                        <winformchart:Chart.Series>
-                            <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
-                        </winformchart:Chart.Series>
-                        <winformchart:Chart.ChartAreas>
-                            <winformchart:ChartArea BackColor="Transparent" >
-                            </winformchart:ChartArea>
-                        </winformchart:Chart.ChartAreas>
-                    </winformchart:Chart>
-                </WindowsFormsHost>
-
-                <WindowsFormsHost x:Name="cpu2Grid" Grid.Column="2" Grid.Row="0">
-                    <winformchart:Chart x:Name="cpu2Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
-                        <winformchart:Chart.Series>
-                            <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
-                        </winformchart:Chart.Series>
-                        <winformchart:Chart.ChartAreas>
-                            <winformchart:ChartArea BackColor="Transparent" >
-                            </winformchart:ChartArea>
-                        </winformchart:Chart.ChartAreas>
-                    </winformchart:Chart>
-                </WindowsFormsHost>
-
-                <WindowsFormsHost x:Name="cpu3Grid" Grid.Column="3" Grid.Row="0">
-                    <winformchart:Chart x:Name="cpu3Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
-                        <winformchart:Chart.Series>
-                            <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
-                        </winformchart:Chart.Series>
-                        <winformchart:Chart.ChartAreas>
-                            <winformchart:ChartArea BackColor="Transparent" >
-                            </winformchart:ChartArea>
-                        </winformchart:Chart.ChartAreas>
-                    </winformchart:Chart>
-                </WindowsFormsHost>
-
-                <WindowsFormsHost x:Name="cpu4Grid" Grid.Column="0" Grid.Row="1">
-                    <winformchart:Chart x:Name="cpu4Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
-                        <winformchart:Chart.Series>
-                            <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
-                        </winformchart:Chart.Series>
-                        <winformchart:Chart.ChartAreas>
-                            <winformchart:ChartArea BackColor="Transparent" >
-                            </winformchart:ChartArea>
-                        </winformchart:Chart.ChartAreas>
-                    </winformchart:Chart>
-                </WindowsFormsHost>
-
-                <WindowsFormsHost x:Name="cpu5Grid" Grid.Column="1" Grid.Row="1">
-                    <winformchart:Chart x:Name="cpu5Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
-                        <winformchart:Chart.Series>
-                            <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
-                        </winformchart:Chart.Series>
-                        <winformchart:Chart.ChartAreas>
-                            <winformchart:ChartArea BackColor="Transparent" >
-                            </winformchart:ChartArea>
-                        </winformchart:Chart.ChartAreas>
-                    </winformchart:Chart>
-                </WindowsFormsHost>
-
-                <WindowsFormsHost x:Name="cpu6Grid" Grid.Column="2" Grid.Row="1">
-                    <winformchart:Chart x:Name="cpu6Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
-                        <winformchart:Chart.Series>
-                            <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
-                        </winformchart:Chart.Series>
-                        <winformchart:Chart.ChartAreas>
-                            <winformchart:ChartArea BackColor="Transparent" >
-                            </winformchart:ChartArea>
-                        </winformchart:Chart.ChartAreas>
-                    </winformchart:Chart>
-                </WindowsFormsHost>
-
-                <WindowsFormsHost x:Name="cpu7Grid" Grid.Column="3" Grid.Row="1">
-                    <winformchart:Chart x:Name="cpu7Chart" BackColor="Transparent" BackSecondaryColor="Transparent">
-                        <winformchart:Chart.Series>
-                            <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
-                        </winformchart:Chart.Series>
-                        <winformchart:Chart.ChartAreas>
-                            <winformchart:ChartArea BackColor="Transparent" >
-                            </winformchart:ChartArea>
-                        </winformchart:Chart.ChartAreas>
-                    </winformchart:Chart>
-                </WindowsFormsHost>
-
-
+                <Label Name="ramLabel" Grid.Row="0" FontSize="12" VerticalAlignment="Bottom"/>
+                <Label Name="ramUsedLabel" Grid.Row="1" FontSize="12" VerticalAlignment="Bottom"/>
+                <Label Name="ramAvailableLabel" Grid.Row="2" FontSize="12" VerticalAlignment="Bottom"/>
             </Grid>
-        </DockPanel>
+
+            
+
+        </Grid>
+
+        <Grid Name="diskGrid" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+
+            <Label Name="diskLabel" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <WindowsFormsHost x:Name="diskIOGrid" Grid.Row="1">
+                <winformchart:Chart x:Name="diskIOChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                    <winformchart:Chart.Series>
+                        <winformchart:Series Name="Lesen" ChartType="FastLine" BorderWidth="2" XValueType="DateTime"/>
+                    </winformchart:Chart.Series>
+                    <winformchart:Chart.ChartAreas>
+                        <winformchart:ChartArea Name="chartArea" BackColor="Transparent" >
+                        </winformchart:ChartArea>
+                    </winformchart:Chart.ChartAreas>
+                    <winformchart:Chart.Legends>
+                        <winformchart:Legend Name="Speichermedium" BackColor="Transparent"/>
+                    </winformchart:Chart.Legends>
+                </winformchart:Chart>
+            </WindowsFormsHost>
+
+            <WindowsFormsHost x:Name="diskUtilGrid" Grid.Column="1" Grid.Row="1">
+                <winformchart:Chart x:Name="diskUtilChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                    <winformchart:Chart.Series>
+                        <winformchart:Series ChartType="Pie" BorderWidth="3" XValueType="DateTime"/>
+                    </winformchart:Chart.Series>
+                    <winformchart:Chart.ChartAreas>
+                        <winformchart:ChartArea BackColor="Transparent" >
+                        </winformchart:ChartArea>
+                    </winformchart:Chart.ChartAreas>
+                </winformchart:Chart>
+            </WindowsFormsHost>
+            
+            
+
+            <ComboBox x:Name="diskComboBox" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Stretch" SelectionChanged="diskComboBox_SelectionChanged">
+                <ComboBoxItem Content="Speichermedium wählen" HorizontalAlignment="Left"/>
+            </ComboBox>
+
+        </Grid>
+        
     </Grid>
 </Page>
