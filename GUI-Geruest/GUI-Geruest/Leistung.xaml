@@ -187,7 +187,7 @@
             <WindowsFormsHost x:Name="diskIOGrid" Grid.Row="1">
                 <winformchart:Chart x:Name="diskIOChart" BackColor="Transparent" BackSecondaryColor="Transparent">
                     <winformchart:Chart.Series>
-                        <winformchart:Series Name="Lesen" ChartType="FastLine" BorderWidth="1" XValueType="DateTime" IsVisibleInLegend="False"/>
+                        <winformchart:Series Name="Lesen" ChartType="FastLine" BorderWidth="3" Color="DarkBlue" XValueType="DateTime" IsVisibleInLegend="False"/>
                     </winformchart:Chart.Series>
                     <winformchart:Chart.ChartAreas>
                         <winformchart:ChartArea Name="chartArea" BackColor="Transparent" >

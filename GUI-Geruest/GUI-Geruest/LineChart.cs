@@ -56,8 +56,9 @@ namespace GUI_Geruest
 
             chart.Series.Add("Schreiben");
             chart.Series[1].ChartArea = "chartArea";
-            chart.Series[1].BorderWidth = 1;
+            chart.Series[1].BorderWidth = 3;
             chart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            chart.Series[1].Color = System.Drawing.Color.DarkRed;
 
             chart.Series[0].IsVisibleInLegend = true;
 

@@ -57,15 +57,7 @@ namespace GUI_Geruest
 
             ramLabel.Content = "Physikalischer Speicher: " + Math.Round((decimal)new ComputerInfo().TotalPhysicalMemory / 1073741824, 2) + " GiB";
 
-            // Eintragen der vorhandenen Speichermedien ins DropDownMenu
-            foreach (String diskInstance in diskInstancenames)
-            {
-                diskComboBox.SelectedItem = diskComboBox.Items[0];
-                if (diskInstance != "_Total")
-                {
-                    diskComboBox.Items.Add(diskInstance);
-                }
-            }
+            
 
             
 
@@ -78,6 +70,17 @@ namespace GUI_Geruest
 
         private void PerfCountTimer_Tick(object sender, EventArgs e)
         {
+
+            // Eintragen der vorhandenen Speichermedien ins DropDownMenu
+            foreach (String diskInstance in diskInstancenames)
+            {
+                diskComboBox.SelectedItem = diskComboBox.Items[0];
+                if (diskInstance != "_Total" && diskComboBox.Items.Contains(diskInstance) == false)
+                {
+                    diskComboBox.Items.Add(diskInstance);
+                }
+            }
+
             foreach (LineChart lineChart in cpuLineCharts)
             {
                 if (lineChart == null)
