@@ -10,15 +10,17 @@ namespace GUI_Geruest
     class eventLogListe
     {
         public long id { get; set; }
-        public string catagory { get; set; }
+        public string catagory{ get; set; }
         public string source { get; set; }
         public DateTime timeWritte { get; set; }
-        public  string type { get; set; }
+        public  string level { get; set; }
         public int index { get; set; }
         public string message { get; set; }
         public string user { get; set; }
         public string pc { get; set; }
         public DateTime timeGen { get; set; }
+        public string type { get; set; }
+
     }
 
 
