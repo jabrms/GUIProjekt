@@ -11,6 +11,7 @@
         <DockPanel>
             <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="30">Hardware</TextBlock>
             <Grid>
+                <Label x:Name="temp"/>
             </Grid>
         </DockPanel>
     </Grid>
