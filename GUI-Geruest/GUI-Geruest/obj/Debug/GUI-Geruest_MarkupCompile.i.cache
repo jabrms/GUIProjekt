@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-H:\Dokumente und Tabellen\GUI_project\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\
+C:\Users\Jannik\Desktop\gui\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\
 GUI_Geruest
 none
 false
 DEBUG;TRACE
-H:\Dokumente und Tabellen\GUI_project\GUIProjekt\GUI-Geruest\GUI-Geruest\App.xaml
+C:\Users\Jannik\Desktop\gui\GUIProjekt\GUI-Geruest\GUI-Geruest\App.xaml
 8-1560892221
 
 191563699651
-23-1638234518
+23-1926300514
 Dashboard.xaml;Ereignisse.xaml;Netzwerk.xaml;Hardware.xaml;Leistung.xaml;MainWindow.xaml;programmStarten.xaml;Prozesse.xaml;
 
-False
+True
 

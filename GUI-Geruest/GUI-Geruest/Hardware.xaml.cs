@@ -54,7 +54,7 @@ namespace GUI_Geruest
                     sensorType = sensor.SensorType.ToString();
                 }
 
-                if (sensorType == "Load" || sensorType == "Control")
+                if (sensorType == "Load" || sensorType == "Control" || sensorType == "Level")
                 {
                     einheit = " %";
                 }
@@ -84,6 +84,15 @@ namespace GUI_Geruest
                     einheit = " MHz";
                 }
 
+                else if (sensorType == "Power")
+                {
+                    einheit = " W";
+                }
+
+                else if (sensorType == "Flow")
+                {
+                    einheit = " L/h";
+                }
                 zurueck += "\n\t\t" + sensor.Name.ToString() + "\t Value: " + sensor.Value.Value.ToString() + einheit + "\tMax: " + sensor.Max?.ToString() + einheit +"\n";
             }
             return zurueck;

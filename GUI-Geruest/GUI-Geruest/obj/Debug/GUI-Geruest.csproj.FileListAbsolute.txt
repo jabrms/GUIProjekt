@@ -245,3 +245,4 @@ H:\Dokumente und Tabellen\GUI_project\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Deb
 H:\Dokumente und Tabellen\GUI_project\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\GUI-Geruest.exe
 H:\Dokumente und Tabellen\GUI_project\GUIProjekt\GUI-Geruest\GUI-Geruest\obj\Debug\GUI-Geruest.pdb
 H:\Dokumente und Tabellen\GUI_project\GUIProjekt\GUI-Geruest\GUI-Geruest\bin\Debug\OpenHardwareMonitorLib.dll
+C:\Users\Jannik\Desktop\gui\GUIProjekt\GUI-Geruest\GUI-Geruest\bin\Debug\OpenHardwareMonitorLib.dll

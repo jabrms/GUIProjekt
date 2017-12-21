@@ -108,16 +108,11 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Label x:Name="mainboard" Grid.Row="0"/>
-                    <Label x:Name="cpu" Grid.Row="1" Grid.RowSpan="10"/>
-                    <Label x:Name="ram" Grid.Row="12" Grid.RowSpan="5"/>
-                    <Label x:Name="gpu" Grid.Row="18" Grid.RowSpan="20"/>
+                    <Label x:Name="mainboard" Grid.Row="0" Grid.RowSpan="2"/>
+                    <Label x:Name="cpu" Grid.Row="2" Grid.RowSpan="10"/>
+                    <Label x:Name="ram" Grid.Row="12" Grid.RowSpan="6"/>
+                    <Label x:Name="gpu" Grid.Row="20" Grid.RowSpan="20"/>
                     <Label x:Name="hdd" Grid.Row="37" Grid.RowSpan="10"/>
-                </Grid>
-            </GroupBox>
-            <GroupBox>
-                <Grid>
-                    <Label x:Name="openHardwareMonitor"  />
                 </Grid>
             </GroupBox>
         </DockPanel>
