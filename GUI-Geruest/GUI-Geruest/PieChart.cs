@@ -21,6 +21,9 @@ namespace GUI_Geruest
             chart.Series[0].Points[0].Label = driveInfo.TotalFreeSpace / 1073741824 + " GiB frei";
             chart.Series[0].Points.Add(driveInfo.TotalSize - driveInfo.TotalFreeSpace);
             chart.Series[0].Points[1].Label = (driveInfo.TotalSize - driveInfo.TotalFreeSpace) / 1073741824 + " GiB belegt";
+            chart.Series[0].Points[0].LabelForeColor = System.Drawing.Color.Transparent;
+            chart.Series[0].Points[1].LabelForeColor = System.Drawing.Color.Transparent;
+            chart.Series[0]["PieStartAngle"] = "270";
         }
     }
 }

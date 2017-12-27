@@ -19,8 +19,8 @@
                     <RowDefinition Height="*" MinHeight="25"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="8.5*" MinWidth="250"/>
-                    <ColumnDefinition Width="8.5*" MinWidth="250"/>
+                    <ColumnDefinition Width="*" MinWidth="100"/>
+                    <ColumnDefinition Width="*" MinWidth="100"/>
                 </Grid.ColumnDefinitions>
 
                 <WindowsFormsHost x:Name="cpuGrid" Grid.Column="0" Grid.Row="0">
@@ -57,9 +57,14 @@
                             <winformchart:Series ChartType="Pie" BorderWidth="3" XValueType="DateTime"/>
                         </winformchart:Chart.Series>
                         <winformchart:Chart.ChartAreas>
-                            <winformchart:ChartArea BackColor="Transparent" >
+                            <winformchart:ChartArea BackColor="Transparent">
                             </winformchart:ChartArea>
                         </winformchart:Chart.ChartAreas>
+                        <winformchart:Chart.Legends>
+                            <winformchart:Legend BackColor="Transparent" Alignment="Center">
+                                
+                            </winformchart:Legend>
+                        </winformchart:Chart.Legends>
                     </winformchart:Chart>
                 </WindowsFormsHost>
 
@@ -100,7 +105,16 @@
                         </winformchart:Chart.ChartAreas>
                     </winformchart:Chart>
                 </WindowsFormsHost>
-                <ComboBox x:Name="networkComboBox" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" VerticalAlignment="Top" HorizontalAlignment="Stretch" SelectionChanged="networkComboBox_SelectionChanged">
+
+                <Label Name="noInterfaceOverlayLabel" 
+                       Content="Es muss ein Netzwerkinterface ausgewählt werden" 
+                       Grid.ColumnSpan="2" Grid.Row="2" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"
+                       FontSize="20"
+                       />
+
+                <ComboBox x:Name="networkComboBox" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" VerticalAlignment="Top" HorizontalAlignment="Stretch" SelectionChanged="networkComboBox_SelectionChanged" Margin="5,0,5,0">
                     <ComboBoxItem Content="Interface wählen" HorizontalAlignment="Left"/>
                 </ComboBox>
 
