@@ -10,8 +10,111 @@
     <Grid>
         <DockPanel>
             <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="30">Hardware</TextBlock>
-            <Grid>
-            </Grid>
+            <GroupBox Header="CPU">
+                <Grid>
+                    <!--CPU-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="cpuName" Grid.Row="0"/>
+                    <Label x:Name="cpuArchitecture" Grid.Row="1"/>
+                    <Label x:Name="cpuStatus" Grid.Row="2"/>
+                    <Label x:Name="cpuSpeed" Grid.Row="3"/>
+                    <Label x:Name="cpuVoltage" Grid.Row="4"/>
+                    <Label x:Name="cpuDescription" Grid.Row="5"/>
+                    <Label x:Name="cpuFamily" Grid.Row="6"/>
+                    <Label x:Name="cpuInstallDate" Grid.Row="7"/>
+                    <Label x:Name="cpuL2size" Grid.Row="8"/>
+                    <Label x:Name="cpuL2speed" Grid.Row="9"/>
+                    <Label x:Name="cpuL3size" Grid.Row="10"/>
+                    <Label x:Name="cpuL3speed" Grid.Row="11"/>
+                    <Label x:Name="cpuLoadPercentage" Grid.Row="12"/>
+                    <Label x:Name="cpuManafacture" Grid.Row="13"/>
+                    <Label x:Name="cpuMaxSpeed" Grid.Row="14"/>
+                    <Label x:Name="cpuNumberCore" Grid.Row="15"/>
+                    <Label x:Name="cpuSerialNumber" Grid.Row="16"/>
+                    <Label x:Name="cpuSocket" Grid.Row="17"/>
+                    <Label x:Name="cpuVirtualizatian" Grid.Row="18"/>
+                    <Label x:Name="cpuTemperature" Grid.Row="19"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Hardware">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="mainboard" Grid.Row="0" Grid.RowSpan="2"/>
+                    <Label x:Name="cpu" Grid.Row="2" Grid.RowSpan="10"/>
+                    <Label x:Name="ram" Grid.Row="12" Grid.RowSpan="6"/>
+                    <Label x:Name="gpu" Grid.Row="20" Grid.RowSpan="20"/>
+                    <Label x:Name="hdd" Grid.Row="37" Grid.RowSpan="10"/>
+                </Grid>
+            </GroupBox>
         </DockPanel>
     </Grid>
 </Page>

@@ -53,16 +53,16 @@ namespace GUI_Geruest
             perfCountTimer.IsEnabled = true;
         }
 
-        string[] ipAdressen;
-        string[] SubnetMasken;
-        string[] DefaultGateways;
-        string NetworkCard;
-        string MACAddress;
-        string hostname;
-        string dhcpServer;
-        string[] dnsServer;
-        string dhcpAktiv;    
-        string dnsSuffix;
+        string[] ipAdressen = null;
+        string[] SubnetMasken = null;
+        string[] DefaultGateways = null;
+        string NetworkCard = null;
+        string MACAddress = null;
+        string hostname = null;
+        string dhcpServer = null;
+        string[] dnsServer = null;
+        string dhcpAktiv = null;    
+        string dnsSuffix = null;
         private void NetzwerkInfo()
         {
             ManagementObjectSearcher NetworkInfo = new ManagementObjectSearcher("SELECT * FROM Win32_NetworkAdapterConfiguration WHERE IPEnabled = 'TRUE'");
@@ -82,7 +82,10 @@ namespace GUI_Geruest
                     dnsSuffix = (string)mo["DNSDomain"];
                     dhcpAktiv = mo["DHCPEnabled"].ToString();
                 }
-                catch { }
+                catch
+                {
+                    DefaultGateways = null;
+                }
 
             }
         }
@@ -107,7 +110,10 @@ namespace GUI_Geruest
             NetzwerkInfo();
             ip_info.Content = ipAdressen[0];
             sm_info.Content = SubnetMasken[0];
-            gw_info.Content = DefaultGateways[0];
+            if (DefaultGateways != null)
+            {
+                gw_info.Content = DefaultGateways[0];
+            }
             mac_info.Content = MACAddress;
             desc_info.Content = NetworkCard;
             hn_info.Content = hostname;
@@ -123,37 +129,41 @@ namespace GUI_Geruest
 
                 contentLoeschen();
 
-                foreach (string ipA in ipAdressen)
+                try
                 {
-                    ip_info.Content += ipA + "\n";
+                    foreach (string ipA in ipAdressen)
+                    {
+                        ip_info.Content += ipA + "\n";
+                    }
+
+                    foreach (string subm in SubnetMasken)
+                    {
+                        sm_info.Content += subm + "\n";
+                    }
+
+                    foreach (string gw in DefaultGateways)
+                    {
+                        gw_info.Content += gw + "\n";
+                    }
+
+                    mac_info.Content = MACAddress;
+                    desc_info.Content = NetworkCard;
+                    hn_info.Content = hostname;
+
+                    ip.Content = "IPv4-Adresse" + "\nLink-Lokale IPv6-Adresse:" + "\ntemporäre IPv6-Adresse:" + "\nIPv6-Adresse:";
+
+                    dhcp.Content = "DHCP-Server:";
+                    dhcp_info.Content = dhcpServer;
+                    dns.Content = "DNS-Server:";
+                    foreach (string dn in dnsServer)
+                    {
+                        dns_info.Content += dn + "\n";
+                    }
+
+                    dnsSuf.Content = "DNS-Suffix:";
+                    dnsSuf_info.Content = dnsSuffix;
                 }
-
-                foreach (string subm in SubnetMasken)
-                {
-                    sm_info.Content += subm + "\n";
-                }
-
-                foreach (string gw in DefaultGateways)
-                {
-                    gw_info.Content += gw + "\n";
-                }
-
-                mac_info.Content = MACAddress;
-                desc_info.Content = NetworkCard;
-                hn_info.Content = hostname;
-
-                ip.Content = "IPv4-Adresse" + "\nLink-Lokale IPv6-Adresse:" + "\ntemporäre IPv6-Adresse:" + "\nIPv6-Adresse:";
-
-                dhcp.Content = "DHCP-Server:";
-                dhcp_info.Content = dhcpServer;
-                dns.Content = "DNS-Server:";
-                foreach(string dn in dnsServer)
-                {
-                    dns_info.Content += dn + "\n";
-                }
-                
-                dnsSuf.Content = "DNS-Suffix:";
-                dnsSuf_info.Content = dnsSuffix;
+                catch { }
             }
 
         }

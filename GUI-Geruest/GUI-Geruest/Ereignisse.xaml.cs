@@ -51,22 +51,37 @@ namespace GUI_Geruest
             listeApplication.ItemsSource = ApplicationList;
         }
 
+        int anzahPruefen(int anzahlLogs)    //prueft ob die eingegebene Zahl nicht groeßer ist als die Anzahl Logs 
+        {
+            int anzahl = 0;
+            if (anzahlLogs >= int.Parse(anzahlElemente.Text) && 0 <= int.Parse(anzahlElemente.Text))
+            {
+                anzahl = int.Parse(anzahlElemente.Text);
+            }
+            else if (int.Parse(anzahlElemente.Text) > anzahlLogs)
+            {
+                anzahl = anzahlLogs;
+            }
+            else
+            {
+                anzahl = 0;
+            }
+            anzahlElemente.Text = anzahl.ToString();
+            return anzahl;
+        }
+
         List<eventLogListe> eventlogReadAll()
         {
             List<eventLogListe> EventList = new List<eventLogListe>();
             int count = 0;
-            int x = 0;
-            int anzahl = 0;
+            int anzahl, x = 0;
 
             EventLog logSys = new EventLog("System");
             EventLog logApp = new EventLog("Application");
 
             anzahlLogsGes = logSys.Entries.Count + logApp.Entries.Count;
 
-            if (anzahlLogsGes >= int.Parse(anzahlElemente.Text))
-            {
-                anzahl = int.Parse(anzahlElemente.Text);
-            }          
+            anzahl = anzahPruefen(anzahlLogsGes);
 
             anzahl = anzahl / 2;
 
@@ -117,18 +132,12 @@ namespace GUI_Geruest
             if (protokoll == "Application")
             {
                 anzahlLogsApp = log.Entries.Count;
-                if (anzahlLogsApp >= int.Parse(anzahlElemente.Text))
-                {
-                    anzahl = int.Parse(anzahlElemente.Text);
-                }
+                anzahl = anzahPruefen(anzahlLogsApp);
             }
             else if(protokoll == "System")
             {
                 anzahlLogsSys = log.Entries.Count;
-                if (anzahlLogsSys >= int.Parse(anzahlElemente.Text))
-                {
-                    anzahl = int.Parse(anzahlElemente.Text);
-                }         
+                anzahl = anzahPruefen(anzahlLogsSys);
             } 
 
             foreach (EventLogEntry entry in log.Entries)
@@ -203,7 +212,10 @@ namespace GUI_Geruest
                 gesamtAnzLogs.Content = "Anzahl Application Logs: " + anzahlLogsApp;
                 if (int.Parse(anzahlElemente.Text) > anzahlLogsApp)
                 {
-                    MessageBox.Show("Es exestieren weniger Elemente als Sie anzeigen lassen wollen", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Es exestieren weniger Elemente als Sie anzeigen lassen wollen", "Information. \nDer größt mögliche Wert wird eingestellt.", MessageBoxButton.OK, MessageBoxImage.Information);
+                    anzahlElemente.Text = anzahlLogsApp.ToString();
+                    ApplicationList = eventlogRead("Application");
+                    listeApplication.ItemsSource = ApplicationList;
                 }
             }
 
@@ -212,7 +224,10 @@ namespace GUI_Geruest
                 gesamtAnzLogs.Content = "Anzahl System Logs: " + anzahlLogsSys;
                 if (int.Parse(anzahlElemente.Text) > anzahlLogsSys)
                 {
-                    MessageBox.Show("Es exestieren weniger Elemente als Sie anzeigen lassen wollen", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Es exestieren weniger Elemente als Sie anzeigen lassen wollen.\nDer größt mögliche Wert wird eingestellt.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    anzahlElemente.Text = anzahlLogsSys.ToString();
+                    SystemList = eventlogRead("System");
+                    listeSystem.ItemsSource = SystemList;
                 }
             }
 
