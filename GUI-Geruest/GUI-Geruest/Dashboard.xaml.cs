@@ -80,7 +80,7 @@ namespace GUI_Geruest
         //Wir bei jedem Timer-Tick ausgefuehrt
         private void PerfCountTimer_Tick(object sender, EventArgs e)
         {
-            // Aktualisierung der Werte durch aufruf der PerformanceCounter
+            // Aktualisierung der Diagramme
             cpuLineChart.refresh();
             ramLineChart.refresh();
             diskIOLineChart.refresh();

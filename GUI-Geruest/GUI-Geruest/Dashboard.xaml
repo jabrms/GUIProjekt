@@ -10,7 +10,16 @@
 
     <Grid>
         <DockPanel>
-            <TextBlock DockPanel.Dock="Top" Width="auto" FontSize="30" Background="DarkGray" Foreground="White" Margin="5,5,5,5">Dashboard</TextBlock>
+            <TextBlock 
+                DockPanel.Dock="Top" 
+                Width="auto" 
+                FontSize="30" 
+                Background="DarkGray" 
+                Foreground="White" 
+                Margin="5,5,5,5">Dashboard
+            </TextBlock>
+            
+            <!--Einteilung der Gesamtflaeche-->
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10*" MinHeight="150"/>
@@ -23,10 +32,21 @@
                     <ColumnDefinition Width="*" MinWidth="100"/>
                 </Grid.ColumnDefinitions>
 
-                <WindowsFormsHost x:Name="cpuGrid" Grid.Column="0" Grid.Row="0">
-                    <winformchart:Chart x:Name="cpuChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                <!--CPU-Diagramm-->
+                <WindowsFormsHost 
+                    x:Name="cpuGrid" 
+                    Grid.Column="0" 
+                    Grid.Row="0">
+                    <winformchart:Chart 
+                        x:Name="cpuChart" 
+                        BackColor="Transparent" 
+                        BackSecondaryColor="Transparent">
                         <winformchart:Chart.Series>
-                            <winformchart:Series Name="CPU Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                            <winformchart:Series 
+                                Name="CPU Auslastung" 
+                                ChartType="FastLine" 
+                                BorderWidth="3" 
+                                XValueType="DateTime"/>
                         </winformchart:Chart.Series>
                         <winformchart:Chart.ChartAreas>
                             <winformchart:ChartArea BackColor="Transparent" >
@@ -35,10 +55,21 @@
                     </winformchart:Chart>
                 </WindowsFormsHost>
 
-                <WindowsFormsHost x:Name="ramGrid" Grid.Column="1" Grid.Row="0">
-                    <winformchart:Chart x:Name="ramChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                <!--RAM-Diagramm-->
+                <WindowsFormsHost 
+                    x:Name="ramGrid" 
+                    Grid.Column="1" 
+                    Grid.Row="0">
+                    <winformchart:Chart 
+                        x:Name="ramChart" 
+                        BackColor="Transparent" 
+                        BackSecondaryColor="Transparent">
                         <winformchart:Chart.Series>
-                            <winformchart:Series Name="RAM Auslastung" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                            <winformchart:Series 
+                                Name="RAM Auslastung" 
+                                ChartType="FastLine" 
+                                BorderWidth="3" 
+                                XValueType="DateTime"/>
                         </winformchart:Chart.Series>
                         <winformchart:Chart.ChartAreas>
                             <winformchart:ChartArea BackColor="Transparent" >
@@ -48,30 +79,49 @@
                 </WindowsFormsHost>
 
 
-
-
-
-                <WindowsFormsHost x:Name="storageGrid" Grid.Column="0" Grid.Row="1">
-                    <winformchart:Chart x:Name="storageChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                <!--Hauptfestplattenbereich-->
+                <!--Belegungsdiagramm-->
+                <WindowsFormsHost 
+                    x:Name="storageGrid" 
+                    Grid.Column="0" 
+                    Grid.Row="1">
+                    <winformchart:Chart 
+                        x:Name="storageChart" 
+                        BackColor="Transparent" 
+                        BackSecondaryColor="Transparent">
                         <winformchart:Chart.Series>
-                            <winformchart:Series ChartType="Pie" BorderWidth="3" XValueType="DateTime"/>
+                            <winformchart:Series 
+                                ChartType="Pie" 
+                                BorderWidth="3" 
+                                XValueType="DateTime"/>
                         </winformchart:Chart.Series>
                         <winformchart:Chart.ChartAreas>
                             <winformchart:ChartArea BackColor="Transparent">
                             </winformchart:ChartArea>
                         </winformchart:Chart.ChartAreas>
                         <winformchart:Chart.Legends>
-                            <winformchart:Legend BackColor="Transparent" Alignment="Center">
-                                
+                            <winformchart:Legend BackColor="Transparent" 
+                                                 Alignment="Center">
                             </winformchart:Legend>
                         </winformchart:Chart.Legends>
                     </winformchart:Chart>
                 </WindowsFormsHost>
 
-                <WindowsFormsHost x:Name="diskIOGrid" Grid.Column="1" Grid.Row="1">
-                    <winformchart:Chart x:Name="diskIOChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                <!--I/O-Diagramm-->
+                <WindowsFormsHost 
+                    x:Name="diskIOGrid" 
+                    Grid.Column="1" 
+                    Grid.Row="1">
+                    <winformchart:Chart 
+                        x:Name="diskIOChart" 
+                        BackColor="Transparent" 
+                        BackSecondaryColor="Transparent">
                         <winformchart:Chart.Series>
-                            <winformchart:Series Name="Festplatten Schreib und Leserate" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                            <winformchart:Series 
+                                Name="Festplatten Schreib und Leserate" 
+                                ChartType="FastLine" 
+                                BorderWidth="3" 
+                                XValueType="DateTime"/>
                         </winformchart:Chart.Series>
                         <winformchart:Chart.ChartAreas>
                             <winformchart:ChartArea BackColor="Transparent" >
@@ -80,24 +130,24 @@
                     </winformchart:Chart>
                 </WindowsFormsHost>
 
-                <WindowsFormsHost x:Name="networkRecGrid" Grid.Column="0" Grid.Row="2">
-                    <winformchart:Chart x:Name="networkRecChart" BackColor="Transparent" BackSecondaryColor="Transparent">
-                        <winformchart:Chart.Series>
-                            <winformchart:Series Name="Netzwerk Empfagsrate" ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
-                        </winformchart:Chart.Series>
-                        <winformchart:Chart.ChartAreas>
-                            <winformchart:ChartArea BackColor="Transparent" >
-                            </winformchart:ChartArea>
-                        </winformchart:Chart.ChartAreas>
-                    </winformchart:Chart>
-                </WindowsFormsHost>
                 
                 
-
-                <WindowsFormsHost x:Name="networkSenGrid" Grid.Column="1" Grid.Row="2">
-                    <winformchart:Chart x:Name="networkSenChart" BackColor="Transparent" BackSecondaryColor="Transparent">
+                <!--Netzwerkbereich-->
+                <!--Eingangsdatenrate-Diagramm-->
+                <WindowsFormsHost 
+                    x:Name="networkRecGrid" 
+                    Grid.Column="0" 
+                    Grid.Row="2">
+                    <winformchart:Chart 
+                        x:Name="networkRecChart" 
+                        BackColor="Transparent" 
+                        BackSecondaryColor="Transparent">
                         <winformchart:Chart.Series>
-                            <winformchart:Series ChartType="FastLine" BorderWidth="3" XValueType="DateTime"/>
+                            <winformchart:Series 
+                                Name="Netzwerk Empfagsrate" 
+                                ChartType="FastLine" 
+                                BorderWidth="3" 
+                                XValueType="DateTime"/>
                         </winformchart:Chart.Series>
                         <winformchart:Chart.ChartAreas>
                             <winformchart:ChartArea BackColor="Transparent" >
@@ -106,6 +156,29 @@
                     </winformchart:Chart>
                 </WindowsFormsHost>
 
+                <!--Senderate-Diagramm-->
+                <WindowsFormsHost 
+                    x:Name="networkSenGrid" 
+                    Grid.Column="1" 
+                    Grid.Row="2">
+                    <winformchart:Chart 
+                        x:Name="networkSenChart" 
+                        BackColor="Transparent" 
+                        BackSecondaryColor="Transparent">
+                        <winformchart:Chart.Series>
+                            <winformchart:Series 
+                                ChartType="FastLine" 
+                                BorderWidth="3" 
+                                XValueType="DateTime"/>
+                        </winformchart:Chart.Series>
+                        <winformchart:Chart.ChartAreas>
+                            <winformchart:ChartArea BackColor="Transparent" >
+                            </winformchart:ChartArea>
+                        </winformchart:Chart.ChartAreas>
+                    </winformchart:Chart>
+                </WindowsFormsHost>
+
+                <!--Hinweislabel-->
                 <Label Name="noInterfaceOverlayLabel" 
                        Content="Es muss ein Netzwerkinterface ausgewählt werden" 
                        Grid.ColumnSpan="2" Grid.Row="2" 
@@ -114,15 +187,22 @@
                        FontSize="20"
                        />
 
-                <ComboBox x:Name="networkComboBox" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" VerticalAlignment="Top" HorizontalAlignment="Stretch" SelectionChanged="networkComboBox_SelectionChanged" Margin="5,0,5,0">
-                    <ComboBoxItem Content="Interface wählen" HorizontalAlignment="Left"/>
+                <!--Interface-Auswahl ComboBox-->
+                <ComboBox 
+                    x:Name="networkComboBox" 
+                    Grid.Column="0" 
+                    Grid.ColumnSpan="2" 
+                    Grid.Row="4" 
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Stretch" 
+                    SelectionChanged="networkComboBox_SelectionChanged" 
+                    Margin="5,0,5,0">
+                    <ComboBoxItem 
+                        Content="Interface wählen" 
+                        HorizontalAlignment="Left"/>
                 </ComboBox>
 
             </Grid>
         </DockPanel>
     </Grid>
-
-    
-
-
 </Page>

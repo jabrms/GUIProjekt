@@ -41,6 +41,8 @@ namespace GUI_Geruest
         {
             InitializeComponent();
 
+            diskIOGrid.Visibility = Visibility.Collapsed;
+            diskUtilGrid.Visibility = Visibility.Collapsed;
 
             // erstellt PerformanceCounter fuer jeden CPU-Kern
             int i = 0;
@@ -405,6 +407,9 @@ namespace GUI_Geruest
             }
             else if (diskLineChart == null)
             {
+                noDiskOverlayLabel.Visibility = Visibility.Collapsed;
+                diskIOGrid.Visibility = Visibility.Visible;
+                diskUtilGrid.Visibility = Visibility.Visible;
                 diskLineChart = new LineChart(diskIOChart, new PerformanceCounter("PhysicalDisk", "Disk Read Bytes/sec", (string)diskComboBox.SelectedItem), new PerformanceCounter("PhysicalDisk", "Disk Write Bytes/sec", (string)diskComboBox.SelectedItem), "MiB/s", "Lese-/Schreibrate");
                 diskPieChart = new PieChart(diskUtilChart, getDisk(diskComboBox.SelectedItem.ToString()));
             }

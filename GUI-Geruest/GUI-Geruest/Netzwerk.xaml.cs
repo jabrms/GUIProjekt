@@ -37,7 +37,13 @@ namespace GUI_Geruest
         public Netzwerk()
         {
             InitializeComponent();
+
+            networkRecGrid.Visibility = Visibility.Collapsed;
+            networkSenGrid.Visibility = Visibility.Collapsed;
+
             contentAendern();
+
+            
 
             //Graph
             foreach (string instance in instancenames)
@@ -200,6 +206,9 @@ namespace GUI_Geruest
             }
             else if (networkRecLineChart == null)
             {
+                noInterfaceOverlayLabel.Visibility = Visibility.Collapsed;
+                networkRecGrid.Visibility = Visibility.Visible;
+                networkSenGrid.Visibility = Visibility.Visible;
                 networkRecLineChart = new LineChart(networkRecChart, new PerformanceCounter("Network Interface", "Bytes Received/sec", (string)networkComboBox.SelectedItem), "KiB/s", "Netzwerk Empfagsrate");
                 networkSenLineChart = new LineChart(networkSenChart, new PerformanceCounter("Network Interface", "Bytes Sent/sec", (string)networkComboBox.SelectedItem), "KiB/s", "Netzwerk Senderate");
             }

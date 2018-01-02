@@ -173,7 +173,7 @@
 
         <Grid Name="diskGrid" Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -208,12 +208,23 @@
                         <winformchart:ChartArea BackColor="Transparent" >
                         </winformchart:ChartArea>
                     </winformchart:Chart.ChartAreas>
+                    <winformchart:Chart.Legends>
+                        <winformchart:Legend BackColor="Transparent" Alignment="Center">
+                        </winformchart:Legend>
+                    </winformchart:Chart.Legends>
                 </winformchart:Chart>
             </WindowsFormsHost>
-            
-            
 
-            <ComboBox x:Name="diskComboBox" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Stretch" SelectionChanged="diskComboBox_SelectionChanged">
+
+            <Label Name="noDiskOverlayLabel" 
+                       Content="Es muss ein Speichermedium ausgewählt werden" 
+                       Grid.ColumnSpan="2" Grid.Row="1" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"
+                       FontSize="20"
+                       />
+
+            <ComboBox x:Name="diskComboBox" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Stretch" SelectionChanged="diskComboBox_SelectionChanged" Margin="5,0,5,0">
                 <ComboBoxItem Content="Speichermedium wählen" HorizontalAlignment="Left"/>
             </ComboBox>
 

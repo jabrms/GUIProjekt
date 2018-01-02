@@ -93,7 +93,11 @@ namespace GUI_Geruest
                 {
                     einheit = " L/h";
                 }
-                zurueck += "\n\t\t" + sensor.Name.ToString() + "\t Value: " + sensor.Value.Value.ToString() + einheit + "\tMax: " + sensor.Max?.ToString() + einheit +"\n";
+                try
+                {
+                    zurueck += "\n\t\t" + sensor.Name.ToString() + "\t Value: " + sensor.Value.Value.ToString() + einheit + "\tMax: " + sensor.Max?.ToString() + einheit + "\n";
+                }
+                catch { }
             }
             return zurueck;
         }
@@ -165,7 +169,8 @@ namespace GUI_Geruest
             ManagementObjectSearcher hw = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM " + Hardawareclass);
             foreach (ManagementObject h in hw.Get())
             {
-                info = h[syntax]?.ToString();
+                if(syntax != "VirtualizationFirmwareEnabled")
+                    info = h[syntax]?.ToString();
             }
             if (syntax == "Architecture")
             {
