@@ -118,29 +118,35 @@ namespace GUI_Geruest
 
             foreach (var hardwareItem in pc.Hardware)
             {
-                if (hardwareItem.HardwareType == HardwareType.Mainboard)
-                    mainboard.Content = "Mainboard:\t" + hardwareItem.Name;
-
-                else if (hardwareItem.HardwareType == HardwareType.CPU)
-                    cpu.Content = "CPU:\t" + hardwareItem.Name + textboxBefuellen(hardwareItem);
-
-                else if (hardwareItem.HardwareType == HardwareType.RAM)
-                    ram.Content = "RAM:\t" + hardwareItem.Name + textboxBefuellen(hardwareItem);
-
-                else if (hardwareItem.HardwareType == HardwareType.HDD)
+               this.Dispatcher.Invoke/* new Thread*/(() =>
                 {
-                    hdd.Content += "\nHDD:\t" + hardwareItem.Name  + textboxBefuellen(hardwareItem);
-                }
+                    Thread.CurrentThread.IsBackground = true;
+                    if (hardwareItem.HardwareType == HardwareType.Mainboard)
+                        mainboard.Content = "Mainboard:\t" + hardwareItem.Name;
 
-                else if (hardwareItem.HardwareType == HardwareType.GpuAti || hardwareItem.HardwareType == HardwareType.GpuNvidia)
-                {
-                    gpu.Content = "GPU:\t" + hardwareItem.Name + textboxBefuellen(hardwareItem);
-                }
-                else        //vorlaufig
-                {
-                    MessageBox.Show(hardwareItem.Name + textboxBefuellen(hardwareItem));
-                }
+                    else if (hardwareItem.HardwareType == HardwareType.CPU)
+                        cpu.Content = "CPU:\t" + hardwareItem.Name + textboxBefuellen(hardwareItem);
+
+                    else if (hardwareItem.HardwareType == HardwareType.RAM)
+                        ram.Content = "RAM:\t" + hardwareItem.Name + textboxBefuellen(hardwareItem);
+
+                    else if (hardwareItem.HardwareType == HardwareType.HDD)
+                    {
+                        hdd.Content += "\nHDD:\t" + hardwareItem.Name + textboxBefuellen(hardwareItem);
+                    }
+
+                    else if (hardwareItem.HardwareType == HardwareType.GpuAti || hardwareItem.HardwareType == HardwareType.GpuNvidia)
+                    {
+                        gpu.Content = "GPU:\t" + hardwareItem.Name + textboxBefuellen(hardwareItem);
+                    }
+                    else        //vorlaufig
+                    {
+                        MessageBox.Show(hardwareItem.Name + textboxBefuellen(hardwareItem));
+                    }
+                })/*.Start()*/;
             }
+                
+            
             cpuName.Content = "Name:\t\t\t\t" + getComponent(prozessor, "Name");
             cpuArchitecture.Content = "Architektur:\t\t\t" + getComponent(prozessor, "Architecture");
             cpuStatus.Content = "Status:\t\t\t\t" + getComponent(prozessor, "CpuStatus");
