@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace GUI_Geruest
@@ -32,28 +33,40 @@ namespace GUI_Geruest
         }
         private void Dashboard_Click(object sender, RoutedEventArgs e)
         {
+            Cursor = Cursors.Wait;
             fenster.Content = new Dashboard();
+            Cursor = Cursors.Arrow;
         }
         private void Hardware_Click(object sender, RoutedEventArgs e)
         {
+            Cursor = Cursors.Wait;
             fenster.Content = new Hardware();
-            
+            Cursor = Cursors.Arrow;
+
         }
         private void Netzwerk_Click(object sender, RoutedEventArgs e)
         {
+            Cursor = Cursors.Wait;
             fenster.Content = new Netzwerk();
+            Cursor = Cursors.Arrow;
         }
         private void Leistung_Click(object sender, RoutedEventArgs e)
         {
+            Cursor = Cursors.Wait;
             fenster.Content = new Leistung();
+            Cursor = Cursors.Arrow;
         }
         private void Prozesse_Click(object sender, RoutedEventArgs e)
         {
+            Cursor = Cursors.Wait;
             fenster.Content = new Prozesse();
+            Cursor = Cursors.Arrow;
         }
         private void Ereignisse_Click(object sender, RoutedEventArgs e)
         {
+            Cursor = Cursors.Wait;
             fenster.Content = new Ereignisse();
+            Cursor = Cursors.Arrow;
         }
 
         private void fenster_ContentRendered(object sender, EventArgs e)    //Makiert Navigations Butten -> akt. Frame
