@@ -183,12 +183,14 @@ namespace GUI_Geruest
 
         void listeAktualisieren()
         {
+            Cursor = Cursors.Wait;
             ApplicationList = eventlogRead("Application");
             listeApplication.ItemsSource = ApplicationList;
             SystemList = eventlogRead("System");
             listeSystem.ItemsSource = SystemList;
             gesamtList = eventlogReadAll();
             listeGesamt.ItemsSource = gesamtList;
+            Cursor = Cursors.Arrow;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
